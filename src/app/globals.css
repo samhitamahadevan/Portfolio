@@ -3,25 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #D8CFBC;
+  --secondary: #565449;
+  --black: #11120D;
+  --white: #F5EEE6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+@layer base {
+  body {
+    @apply bg-black overscroll-y-none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .box {
+    @apply bg-white text-black rounded-2xl py-6 px-6 justify-center items-center flex;
+  }
+  
+  .content {
+    @apply text-3xl font-[family-name:var(--font-geist-mono)];
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .debug {
+    @apply border border-red-500 border-dotted
+
   }
 }
