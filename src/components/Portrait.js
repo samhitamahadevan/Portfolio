@@ -8,7 +8,7 @@ export default function Portrait() {
         src='/portrait.png'
         fill={true}
         alt='Picture of the author'
-        className='block object-contain object-right-bottom'
+        className='block object-contain object-bottom'
       />
     </div>
   );
