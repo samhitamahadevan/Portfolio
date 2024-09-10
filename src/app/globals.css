@@ -18,11 +18,15 @@
 
 @layer components {
   .box {
-    @apply bg-white text-black rounded-2xl py-6 px-6 justify-center items-center flex;
+    @apply bg-white text-black rounded-2xl py-6 px-6 justify-center items-center flex origin-center;
   }
   
   .content {
     @apply text-3xl font-[family-name:var(--font-geist-mono)];
+  }
+
+  .btn {
+    @apply pt-2.5 pb-2 px-6 rounded-full bg-primary fixed top-12 left-12 uppercase font-[family-name:var(--font-geist-mono)] font-extrabold;
   }
 }
 
@@ -32,7 +36,18 @@
   }
 
   .debug {
-    @apply border border-red-500 border-dotted
+    @apply border border-red-500 border-dotted;
+  }
 
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .loader-state {
+    @apply absolute-center w-[30vw] h-auto aspect-[400/450] z-30;
+  }
+
+  .resting-state {
+    @apply relative left-0 top-0 transform translate-x-0 translate-y-0 w-full h-full aspect-auto z-20;
   }
 }
