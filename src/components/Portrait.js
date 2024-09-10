@@ -17,6 +17,7 @@ export default function Portrait({ timeline, index = 0 }) {
       timeline.add(
         Flip.from(state, {
           duration: 0.4,
+          ease: 'power1.out',
         })
           .set('.item', { opacity: 1 })
           .set('.loader', { visibility: 'hidden' }),

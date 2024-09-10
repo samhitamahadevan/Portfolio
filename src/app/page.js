@@ -2,7 +2,7 @@
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import About from '@/components/About';
 import Contact from '@/components/Contact';
@@ -13,21 +13,43 @@ import Socials from '@/components/Socials';
 import Work from '@/components/Work';
 
 export default function Home() {
+  const loadingBarRef = useRef();
+  const loadingTl = useRef();
+
   const [loaded, setLoaded] = useState(false);
   const [tl, setTl] = useState();
 
   useGSAP(() => {
+    loadingTl.current = gsap
+      .timeline()
+      .to(loadingBarRef.current, {
+        scaleX: 1,
+        ease: 'slow.out',
+        duration: 1.5,
+        onComplete: () => setLoaded(true),
+      })
+      .to(loadingBarRef.current, { autoAlpha: 0 });
+  });
+
+  useGSAP(() => {
+    gsap.set(document.body, { overflow: 'hidden' });
+    window.scrollTo({ top: 0 });
+
     if (!loaded) return;
 
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      onComplete: () => gsap.set(document.body, { overflow: 'auto' }),
+    });
     setTl(tl);
   }, [loaded]);
 
   return (
     <main className='w-full'>
-      <button className='btn' onClick={() => setLoaded(true)}>
-        Play Animation
-      </button>
+      <div
+        ref={loadingBarRef}
+        className='w-full h-1 bg-primary top-0 left-0 fixed scale-x-0 origin-left'
+      />
 
       <div className='min-h-screen p-6 grid grid-cols-12 grid-rows-8 gap-6 max-lg:grid-rows-15 max-md:grid-rows-22'>
         <Nav timeline={tl} index={1} />
