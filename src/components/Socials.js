@@ -1,29 +1,39 @@
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useAppearAnimation } from '@/hooks/useAppearAnimation';
 
 export default function Socials({ timeline, index }) {
-  const elRef = useRef();
+  const links = [
+    {
+      title: 'Instagram',
+      url: '',
+    },
+    {
+      title: 'Linkedin',
+      url: '',
+    },
+    {
+      title: 'Pinterest',
+      url: '',
+    },
+  ];
 
-  useGSAP(() => {
-    timeline &&
-      timeline.to(
-        elRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-        },
-        index * 0.15
-      );
-  }, [timeline, index]);
+  const elRef = useAppearAnimation(timeline, index);
 
   return (
     <div
       ref={elRef}
-      className='box col-span-4 row-span-1 max-lg:col-span-12 opacity-0 scale-0 -translate-y-full'
+      className='box flex -translate-y-full scale-0 items-center justify-evenly opacity-0'
     >
-      <div className='content'>Socials</div>
+      {links.map(link => (
+        <a
+          key={link.title}
+          href={link.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='font-medium uppercase'
+        >
+          {link.title}
+        </a>
+      ))}
     </div>
   );
 }

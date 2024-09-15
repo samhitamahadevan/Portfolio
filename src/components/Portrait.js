@@ -31,12 +31,9 @@ export default function Portrait({ timeline, index = 0 }) {
   );
 
   return (
-    <div
-      ref={containerRef}
-      className='col-span-3 row-span-4 max-lg:col-span-4 max-md:col-span-12'
-    >
+    <div ref={containerRef} className='size-full'>
       <div
-        className='item bg-secondary overflow-hidden box resting-state opacity-0'
+        className='item resting-state box bg-secondary opacity-0'
         data-flip-id='item'
       >
         <Image
@@ -48,7 +45,7 @@ export default function Portrait({ timeline, index = 0 }) {
       </div>
 
       <div
-        className='loader bg-secondary overflow-hidden box loader-state'
+        className='loader loader-state box bg-secondary'
         data-flip-id='loader'
       >
         <Image

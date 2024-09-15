@@ -1,28 +1,10 @@
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useAppearAnimation } from '@/hooks/useAppearAnimation';
 
 export default function Work({ timeline, index }) {
-  const elRef = useRef();
-
-  useGSAP(() => {
-    timeline &&
-      timeline.to(
-        elRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-        },
-        index * 0.15
-      );
-  }, [timeline, index]);
+  const elRef = useAppearAnimation(timeline, index);
 
   return (
-    <div
-      ref={elRef}
-      className='box col-span-4 row-span-6 max-lg:col-span-12 z-10 opacity-0 scale-0 -translate-x-full'
-    >
+    <div ref={elRef} className='box z-10 -translate-x-full scale-0 opacity-0'>
       <div className='content'>Work</div>
     </div>
   );

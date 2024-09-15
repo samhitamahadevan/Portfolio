@@ -1,29 +1,14 @@
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useAppearAnimation } from '@/hooks/useAppearAnimation';
 
 export default function Nav({ timeline, index }) {
-  const elRef = useRef();
-
-  useGSAP(() => {
-    timeline &&
-      timeline.to(
-        elRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-        },
-        index * 0.15
-      );
-  }, [timeline, index]);
+  const elRef = useAppearAnimation(timeline, index);
 
   return (
     <nav
-      className='box col-span-12 row-span-1 opacity-0 scale-0 translate-y-full'
+      className='box flex translate-y-full scale-0 items-center justify-center opacity-0'
       ref={elRef}
     >
-      <div className='content font-black'>Bentolio</div>
+      <div className='content font-heading text-2xl'>Bentolio</div>
     </nav>
   );
 }

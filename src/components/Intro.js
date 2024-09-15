@@ -1,29 +1,23 @@
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useAppearAnimation } from '@/hooks/useAppearAnimation';
+import Image from 'next/image';
 
 export default function Intro({ timeline, index }) {
-  const elRef = useRef();
-
-  useGSAP(() => {
-    timeline &&
-      timeline.to(
-        elRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-        },
-        index * 0.15
-      );
-  }, [timeline, index]);
+  const elRef = useAppearAnimation(timeline, index);
 
   return (
     <div
       ref={elRef}
-      className='box col-span-5 row-span-4 max-lg:col-span-8 max-md:col-span-12 z-10 opacity-0 scale-0 translate-x-full'
+      className='box z-10 flex translate-x-full scale-0 flex-col justify-between gap-4 opacity-0'
     >
-      <div className='content'>Intro</div>
+      <div className='relative ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'>
+        <Image src='/icons/intro-icon.svg' fill={true} alt='flower' />
+      </div>
+
+      <h1 className='max-w-[17ch] pb-8 font-heading text-[3.5vw] leading-[100%] max-lg:text-[4.5vw] max-md:text-[8vw]'>
+        Let’s create dance floor
+        <span className='font-extralight italic'> magic</span> for your special
+        day
+      </h1>
     </div>
   );
 }

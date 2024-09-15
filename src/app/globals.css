@@ -2,31 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #D8CFBC;
-  --secondary: #565449;
-  --black: #11120D;
-  --white: #F5EEE6;
-}
-
+/* :root {
+  --base-font-size: 16;
+} */
 
 @layer base {
+  /* import fonts */
+  @font-face {
+    font-family: 'PP Pangaia';
+    src: url('/fonts/PPPangaia-Medium.woff2') format('woff2'),
+        url('/fonts/PPPangaia-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'PP Pangaia';
+      src: url('/fonts/PPPangaia-UltralightItalic.woff2') format('woff2'),
+          url('/fonts/PPPangaia-UltralightItalic.woff') format('woff');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Gilroy';
+      src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
+          url('/fonts/Gilroy-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Gilroy';
+      src: url('/fonts/Gilroy-Medium.woff2') format('woff2'),
+          url('/fonts/Gilroy-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  /* global styles */
   body {
-    @apply bg-black overscroll-y-none;
+    @apply bg-black font-text overscroll-y-none;
   }
 }
 
 @layer components {
   .box {
-    @apply bg-white text-black rounded-2xl py-6 px-6 justify-center items-center flex origin-center;
-  }
-  
-  .content {
-    @apply text-3xl font-[family-name:var(--font-geist-mono)];
+    @apply size-full bg-white text-black rounded-[20px] py-6 px-6 overflow-hidden;
   }
 
-  .btn {
-    @apply pt-2.5 pb-2 px-6 rounded-full bg-primary fixed top-12 left-12 uppercase font-[family-name:var(--font-geist-mono)] font-extrabold;
+  .intro-text {
+    font-size: max(36px, calc(100vw / 1440 * 56));
+  }
+
+  .intro-icon {
+    width: max(80px, calc(100vw / 1440 * 100));
+    height: max(80px, calc(100vw / 1440 * 100));
   }
 }
 
