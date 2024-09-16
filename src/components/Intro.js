@@ -6,10 +6,12 @@ export default function Intro({ timeline, index }) {
 
   const elRef = useAppearAnimation(timeline, index);
 
+  const preAnimationClass = 'translate-x-full scale-0 opacity-0';
+
   return (
     <div
       ref={elRef}
-      className='box z-10 flex translate-x-full scale-0 flex-col justify-between gap-4 opacity-0'
+      className={`${preAnimationClass} box z-10 flex flex-col justify-between gap-4`}
     >
       <div className='relative ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'>
         <Image src='/icons/intro-icon.svg' fill={true} alt='flower' />

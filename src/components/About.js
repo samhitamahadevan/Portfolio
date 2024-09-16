@@ -11,10 +11,12 @@ export default function About({ timeline, index }) {
 
   const elRef = useAppearAnimation(timeline, index);
 
+  const preAnimationClass = '-translate-y-full scale-0 opacity-0';
+
   return (
     <div
       ref={elRef}
-      className='box flex -translate-y-full scale-0 flex-col justify-between gap-4 opacity-0'
+      className={`${preAnimationClass} box flex flex-col justify-between gap-4`}
     >
       <Image
         src='/icons/about-icon.svg'

@@ -18,10 +18,12 @@ export default function Socials({ timeline, index }) {
 
   const elRef = useAppearAnimation(timeline, index);
 
+  const preAnimationClass = '-translate-y-full scale-0 opacity-0';
+
   return (
     <div
       ref={elRef}
-      className='box flex -translate-y-full scale-0 items-center justify-evenly gap-2 opacity-0'
+      className={`${preAnimationClass} box flex items-center justify-evenly gap-2`}
     >
       {links.map(link => (
         <a

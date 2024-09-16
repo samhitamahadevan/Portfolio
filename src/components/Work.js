@@ -35,11 +35,10 @@ export default function Work({ timeline, index }) {
 
   const elRef = useAppearAnimation(timeline, index);
 
+  const preAnimationClass = '-translate-x-full scale-0 opacity-0';
+
   return (
-    <div
-      ref={elRef}
-      className='box z-10 -translate-x-full scale-0 py-8 opacity-0'
-    >
+    <div ref={elRef} className={`${preAnimationClass} box z-10 py-8`}>
       <div className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:max-h-[75vh] max-md:max-h-[60vh]'>
         {projects.map((project, index) => (
           <div key={project.title} onClick={() => setActive(index)}>
