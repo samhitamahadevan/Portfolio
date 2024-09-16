@@ -31,6 +31,16 @@ export default function Work({ timeline, index }) {
       link: '',
       media: '',
     },
+    {
+      title: 'Yet Another Dance',
+      link: '',
+      media: '',
+    },
+    {
+      title: 'Yet Another Dance 2',
+      link: '',
+      media: '',
+    },
   ];
 
   const elRef = useAppearAnimation(timeline, index);
@@ -39,7 +49,7 @@ export default function Work({ timeline, index }) {
 
   return (
     <div ref={elRef} className={`${preAnimationClass} box z-10 py-8`}>
-      <div className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:max-h-[75vh] max-md:max-h-[60vh]'>
+      <div className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:max-h-[75vh] max-md:max-h-[85vh]'>
         {projects.map((project, index) => (
           <div key={project.title} onClick={() => setActive(index)}>
             <div className='flex items-baseline justify-between'>
@@ -58,7 +68,7 @@ export default function Work({ timeline, index }) {
             </div>
 
             {index === active && (
-              <div className='relative mt-4 aspect-[3/2] w-full overflow-hidden rounded-[20px] bg-secondary 2xl:mt-[1.6vh]'>
+              <div className='relative mt-5 aspect-[3/2] w-full overflow-hidden rounded-[20px] bg-secondary 2xl:mt-[1.6vh]'>
                 <Image
                   src='/work.png'
                   alt='bride and groom'
@@ -69,7 +79,7 @@ export default function Work({ timeline, index }) {
             )}
 
             {index !== projects.length - 1 && (
-              <div className='my-[1.35rem] h-[1px] w-full origin-left bg-secondary 2xl:my-[2.4vh]' />
+              <div className='my-[1.75rem] h-[1px] w-full origin-left bg-secondary 2xl:my-[2.4vh]' />
             )}
           </div>
         ))}

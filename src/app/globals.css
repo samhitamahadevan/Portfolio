@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --base-font-size: 16;
-} */
 
 @layer base {
   /* import fonts */
