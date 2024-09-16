@@ -1,34 +1,8 @@
-import { useGSAP } from '@gsap/react';
-import { Flip } from 'gsap/Flip';
+import { usePortraitAnimation } from '@/hooks/useAnimation';
 import Image from 'next/image';
-import { useRef } from 'react';
 
 export default function Portrait({ timeline, index = 0 }) {
-  const containerRef = useRef();
-
-  useGSAP(
-    () => {
-      if (!timeline) return;
-
-      const state = Flip.getState('.loader');
-
-      Flip.fit('.loader', '.item');
-
-      timeline.add(
-        Flip.from(state, {
-          duration: 0.4,
-          ease: 'power1.out',
-        })
-          .set('.item', { opacity: 1 })
-          .set('.loader', { visibility: 'hidden' }),
-        0
-      );
-    },
-    {
-      dependencies: [timeline, index],
-      scope: containerRef,
-    }
-  );
+  const containerRef = usePortraitAnimation(timeline, index);
 
   return (
     <div ref={containerRef} className='size-full'>
@@ -39,7 +13,7 @@ export default function Portrait({ timeline, index = 0 }) {
         <Image
           src='/portrait.png'
           fill={true}
-          alt='Picture of the author'
+          alt='black woman'
           className='block object-contain object-bottom'
         />
       </div>
@@ -51,7 +25,7 @@ export default function Portrait({ timeline, index = 0 }) {
         <Image
           src='/portrait.png'
           fill={true}
-          alt='Picture of the author'
+          alt='black woman'
           className='block object-contain object-bottom'
         />
       </div>

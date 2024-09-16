@@ -85,4 +85,12 @@
   .resting-state {
     @apply relative left-0 top-0 transform translate-x-0 translate-y-0 w-full h-full aspect-auto z-20;
   }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+  }
 }

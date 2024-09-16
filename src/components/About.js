@@ -1,7 +1,14 @@
 import Image from 'next/image';
-import { useAppearAnimation } from '@/hooks/useAppearAnimation';
+import { useAppearAnimation } from '@/hooks/useAnimation';
 
 export default function About({ timeline, index }) {
+  const text = `
+    DJ Lisa is a passionate wedding DJ, acclaimed for blending diverse
+    musical genres with expert crowd-reading skills. Based in Florida, she
+    crafts personalized soundtracks that turn every wedding into an
+    unforgettable celebration.
+  `;
+
   const elRef = useAppearAnimation(timeline, index);
 
   return (
@@ -14,14 +21,11 @@ export default function About({ timeline, index }) {
         width={48}
         height={48}
         alt='disk'
-        className='size-[2.75rem]'
+        className='size-[2.75rem] 2xl:size-[2.5vw]'
       />
 
-      <p className='max-w-[21rem] pb-2 text-lg leading-[135%] max-lg:max-w-[28rem] max-lg:text-base'>
-        DJ Lisa is a passionate wedding DJ, acclaimed for blending diverse
-        musical genres with expert crowd-reading skills. Based in Florida, she
-        crafts personalized soundtracks that turn every wedding into an
-        unforgettable celebration.
+      <p className='max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:text-[0.9vw]'>
+        {text}
       </p>
     </div>
   );

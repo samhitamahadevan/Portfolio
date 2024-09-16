@@ -1,7 +1,9 @@
-import { useAppearAnimation } from '@/hooks/useAppearAnimation';
+import { useAppearAnimation } from '@/hooks/useAnimation';
 import Image from 'next/image';
 
 export default function Intro({ timeline, index }) {
+  const heading = `Let’s create dance floor <span class='font-extralight italic'> magic</span> for your special day`;
+
   const elRef = useAppearAnimation(timeline, index);
 
   return (
@@ -13,11 +15,10 @@ export default function Intro({ timeline, index }) {
         <Image src='/icons/intro-icon.svg' fill={true} alt='flower' />
       </div>
 
-      <h1 className='max-w-[17ch] pb-8 font-heading text-[3.5vw] leading-[100%] max-lg:text-[4.5vw] max-md:text-[8vw]'>
-        Let’s create dance floor
-        <span className='font-extralight italic'> magic</span> for your special
-        day
-      </h1>
+      <h1
+        dangerouslySetInnerHTML={{ __html: heading }}
+        className='max-w-[17ch] pb-8 font-heading text-[3.5vw] leading-[100%] max-lg:text-[4.5vw] max-md:text-[8vw]'
+      ></h1>
     </div>
   );
 }

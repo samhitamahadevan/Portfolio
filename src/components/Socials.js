@@ -1,4 +1,4 @@
-import { useAppearAnimation } from '@/hooks/useAppearAnimation';
+import { useAppearAnimation } from '@/hooks/useAnimation';
 
 export default function Socials({ timeline, index }) {
   const links = [
@@ -21,7 +21,7 @@ export default function Socials({ timeline, index }) {
   return (
     <div
       ref={elRef}
-      className='box flex -translate-y-full scale-0 items-center justify-evenly opacity-0'
+      className='box flex -translate-y-full scale-0 items-center justify-evenly gap-2 opacity-0'
     >
       {links.map(link => (
         <a
@@ -29,7 +29,7 @@ export default function Socials({ timeline, index }) {
           href={link.url}
           target='_blank'
           rel='noopener noreferrer'
-          className='font-medium uppercase'
+          className='text-base font-medium uppercase max-md:text-sm 2xl:text-[0.85vw]'
         >
           {link.title}
         </a>
