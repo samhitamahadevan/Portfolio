@@ -63,6 +63,14 @@
     width: max(80px, calc(100vw / 1440 * 100));
     height: max(80px, calc(100vw / 1440 * 100));
   }
+
+  .loader-state {
+    @apply absolute-center aspect-[400/450] w-[30vw] h-auto z-30 max-md:w-[50vw];
+  }
+
+  .resting-state {
+    @apply relative left-0 top-0 transform translate-x-0 translate-y-0 aspect-auto w-full h-full z-20;
+  }
 }
 
 @layer utilities {
@@ -76,14 +84,6 @@
 
   .absolute-center {
     @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
-  }
-
-  .loader-state {
-    @apply absolute-center w-[30vw] h-auto aspect-[400/450] z-30;
-  }
-
-  .resting-state {
-    @apply relative left-0 top-0 transform translate-x-0 translate-y-0 w-full h-full aspect-auto z-20;
   }
 
   .hide-scrollbar {

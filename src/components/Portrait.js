@@ -14,7 +14,7 @@ export default function Portrait({ timeline, index = 0 }) {
           src='/portrait.png'
           fill={true}
           alt='black woman'
-          className='block object-contain object-bottom'
+          className='h-full w-full object-contain object-bottom'
         />
       </div>
 
@@ -26,7 +26,8 @@ export default function Portrait({ timeline, index = 0 }) {
           src='/portrait.png'
           fill={true}
           alt='black woman'
-          className='block object-contain object-bottom'
+          className='h-full w-full object-contain object-bottom'
+          priority={true}
         />
       </div>
     </div>
