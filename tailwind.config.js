@@ -7,9 +7,8 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '640px',
-      md: '840px',
-      lg: '1160px',
+      md: '768px',
+      lg: '1180px',
       xl: '1440px',
       '2xl': '2000px',
     },
@@ -33,6 +32,9 @@ module.exports = {
 
         19: 'repeat(19, minmax(0, 1fr))',
         28: 'repeat(28, minmax(0, 1fr))',
+
+        17: 'repeat(17, minmax(0, 1fr))',
+        24: 'repeat(24, minmax(0, 1fr))',
       },
 
       gridRow: {

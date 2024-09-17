@@ -18,6 +18,7 @@ export default function About({ timeline, index }) {
       ref={elRef}
       className={`${preAnimationClass} box flex flex-col justify-between gap-4`}
     >
+      {/* Icon */}
       <Image
         src='/icons/about-icon.svg'
         width={48}
@@ -26,7 +27,7 @@ export default function About({ timeline, index }) {
         className='size-[2.75rem] 2xl:size-[2.5vw]'
       />
 
-      <p className='max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:text-[0.9vw]'>
+      <p className='max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
         {text}
       </p>
     </div>

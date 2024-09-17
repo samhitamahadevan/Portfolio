@@ -27,13 +27,13 @@ export default function Home() {
       />
 
       {/* Bento Grid */}
-      <div className='grid h-screen min-h-[800px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none'>
+      <div className='grid h-screen min-h-[800px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-17 max-md:grid-rows-24'>
         <div className='col-span-12 row-span-1'>
           <Nav timeline={tl} index={1} />
         </div>
 
         {/* Left column */}
-        <div className='col-span-8 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-12'>
+        <div className='col-span-8 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-12 max-md:row-span-18'>
           <div className='col-span-5 row-span-5 max-lg:col-span-8 max-md:col-span-12'>
             <Intro timeline={tl} index={1} />
           </div>
@@ -52,12 +52,12 @@ export default function Home() {
         </div>
 
         {/* Right column */}
-        <div className='col-span-4 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-full'>
-          <div className='col-span-4 row-span-8 max-lg:col-span-full'>
+        <div className='col-span-4 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-12 max-lg:row-span-7 max-md:row-span-5'>
+          <div className='col-span-4 row-span-8 max-lg:col-span-12 max-lg:row-span-6 max-md:row-span-4'>
             <Work timeline={tl} index={1} />
           </div>
 
-          <div className='col-span-4 row-span-1 max-lg:col-span-full'>
+          <div className='col-span-4 row-span-1 max-lg:col-span-12'>
             <Socials timeline={tl} index={1} />
           </div>
         </div>

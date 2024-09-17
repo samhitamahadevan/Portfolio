@@ -13,9 +13,14 @@ export default function Intro({ timeline, index }) {
       ref={elRef}
       className={`${preAnimationClass} box z-10 flex flex-col justify-between gap-4`}
     >
-      <div className='relative ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'>
-        <Image src='/icons/intro-icon.svg' fill={true} alt='flower' />
-      </div>
+      {/* Icon */}
+      <Image
+        src='/icons/intro-icon.svg'
+        width={100}
+        height={100}
+        alt='flower'
+        className='ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'
+      />
 
       <h1
         dangerouslySetInnerHTML={{ __html: heading }}
