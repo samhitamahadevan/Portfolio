@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { useAppearAnimation } from '@/hooks/useAnimation';
+import { useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Contact({ timeline, index }) {
   const label = 'Have some questions?';
   const heading = `Contact <span class='font-extralight italic'>me</span>`;
 
-  const elRef = useAppearAnimation(timeline, index);
+  const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = '-translate-y-full scale-0 opacity-0';
 

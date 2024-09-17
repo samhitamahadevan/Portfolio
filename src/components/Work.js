@@ -1,10 +1,7 @@
 import Image from 'next/image';
-import { useAppearAnimation } from '@/hooks/useAnimation';
-import { useState } from 'react';
+import { useBoxAnimation, useWorkAnimation } from '@/hooks/useAnimation';
 
 export default function Work({ timeline, index }) {
-  const [active, setActive] = useState(0);
-
   const projects = [
     {
       title: 'First Dance',
@@ -38,48 +35,76 @@ export default function Work({ timeline, index }) {
     },
   ];
 
-  const elRef = useAppearAnimation(timeline, index);
+  const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = '-translate-x-full scale-0 opacity-0';
 
+  const { containerRef, handleClick } = useWorkAnimation();
+
   return (
     <div ref={elRef} className={`${preAnimationClass} box z-10 py-8`}>
-      <div className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'>
+      <div
+        className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'
+        ref={containerRef}
+      >
         {projects.map((project, index) => (
-          <div key={project.title} onClick={() => setActive(index)}>
-            <div className='flex items-baseline justify-between'>
-              <h3 className='font-heading text-2xl leading-[100%] 2xl:text-[1.5vw]'>
-                {project.title}
-              </h3>
-              {/* Arrow */}
-              <Image
-                src='/icons/arrow-icon-black.svg'
-                width={16}
-                height={16}
-                alt='arrow'
-                className={`${index === active ? 'block' : 'hidden'} mx-1 size-[0.875rem] 2xl:size-[0.9vw]`}
-              />
-            </div>
-
-            {/* Thumbnail */}
-            <div
-              className={`${index === active ? 'block' : 'hidden'} relative mt-5 aspect-[3/2] w-full overflow-hidden rounded-[20px] bg-secondary 2xl:mt-[1.6vh]`}
-            >
-              <Image
-                src='/work.png'
-                alt='bride and groom'
-                fill={true}
-                className='object-cover'
-              />
-            </div>
-
-            {/* Border */}
-            <div
-              className={`${index !== projects.length - 1 ? 'block' : 'hidden'} my-[1.75rem] h-[1px] w-full origin-left bg-secondary 2xl:my-[2.4vh]`}
-            />
-          </div>
+          <ProjectItem
+            key={project.title}
+            project={project}
+            index={index}
+            isLast={index === projects.length - 1}
+            handleClick={handleClick}
+          />
         ))}
       </div>
     </div>
   );
 }
+
+const ProjectItem = ({ project, index, isLast, handleClick }) => {
+  return (
+    <button
+      key={project.title}
+      onClick={event => handleClick(event)}
+      className={`${index === 0 ? 'pointer-events-none pb-[1.75rem] pt-0' : 'pointer-events-auto py-[1.75rem]'} ${isLast && 'pb-0'} button relative`}
+    >
+      <div className='flex w-full items-baseline justify-between'>
+        <h3 className='font-heading text-2xl leading-[100%] 2xl:text-[1.5vw]'>
+          {project.title}
+        </h3>
+        {/* Arrow */}
+        <a
+          href={project.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow pointer-events-auto mx-1 inline-block`}
+        >
+          <Image
+            src='/icons/arrow-icon-black.svg'
+            width={16}
+            height={16}
+            alt='arrow'
+            className='size-[0.875rem] 2xl:size-[0.9vw]'
+          />
+        </a>
+      </div>
+
+      {/* Thumbnail */}
+      <div
+        className={`${index === 0 ? 'mt-5 h-auto 2xl:mt-[1.6vh]' : 'h-0'} thumbnail relative aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
+      >
+        <Image
+          src='/work.png'
+          alt='bride and groom'
+          fill={true}
+          className='object-cover'
+        />
+      </div>
+
+      {/* Border */}
+      {!isLast && (
+        <div className='absolute bottom-0 left-0 h-[1px] w-full origin-left bg-secondary' />
+      )}
+    </button>
+  );
+};

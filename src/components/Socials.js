@@ -1,4 +1,4 @@
-import { useAppearAnimation } from '@/hooks/useAnimation';
+import { useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Socials({ timeline, index }) {
   const links = [
@@ -16,7 +16,7 @@ export default function Socials({ timeline, index }) {
     },
   ];
 
-  const elRef = useAppearAnimation(timeline, index);
+  const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = '-translate-y-full scale-0 opacity-0';
 

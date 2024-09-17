@@ -1,10 +1,10 @@
-import { useAppearAnimation } from '@/hooks/useAnimation';
+import { useBoxAnimation } from '@/hooks/useAnimation';
 import Image from 'next/image';
 
 export default function Intro({ timeline, index }) {
   const heading = `Let’s create dance floor <span class='font-extralight italic'> magic</span> for your special day`;
 
-  const elRef = useAppearAnimation(timeline, index);
+  const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = 'translate-x-full scale-0 opacity-0';
 

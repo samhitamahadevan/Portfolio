@@ -74,7 +74,28 @@ export const usePortraitAnimation = (timeline, index, animationConfig = {}) => {
   return containerRef;
 };
 
-export const useAppearAnimation = (
+export const useWorkAnimation = () => {
+  const containerRef = useRef();
+  const { contextSafe } = useGSAP({ scope: containerRef });
+
+  const handleClick = contextSafe(event => {
+    gsap.set('.button', { pointerEvents: 'auto' });
+    gsap.to('.thumbnail', { height: 0, marginTop: 0 });
+    gsap.to('.arrow', { autoAlpha: 0 });
+
+    const currentButton = event.currentTarget;
+    const currentThumbnail = currentButton.querySelector('.thumbnail');
+    const currentArrow = currentButton.querySelector('.arrow');
+
+    gsap.set(currentButton, { pointerEvents: 'none' });
+    gsap.to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' });
+    gsap.to(currentArrow, { autoAlpha: 1 });
+  });
+
+  return { containerRef, handleClick };
+};
+
+export const useBoxAnimation = (
   timeline,
   index,
   delay = 0.15,

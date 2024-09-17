@@ -1,7 +1,7 @@
-import { useAppearAnimation } from '@/hooks/useAnimation';
+import { useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Nav({ timeline, index }) {
-  const elRef = useAppearAnimation(timeline, index);
+  const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = 'translate-y-full scale-0 opacity-0';
 
