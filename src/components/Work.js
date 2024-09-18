@@ -1,39 +1,39 @@
 import Image from 'next/image';
 import { useBoxAnimation, useWorkAnimation } from '@/hooks/useAnimation';
 
-export default function Work({ timeline, index }) {
-  const projects = [
-    {
-      title: 'First Dance',
-      link: '',
-      media: '',
-    },
-    {
-      title: 'Cocktail Hour',
-      link: '',
-      media: '',
-    },
-    {
-      title: 'Dinner Music',
-      link: '',
-      media: '',
-    },
-    {
-      title: 'After Party',
-      link: '',
-      media: '',
-    },
-    {
-      title: 'Last Dance',
-      link: '',
-      media: '',
-    },
-    {
-      title: 'Yet Another Dance',
-      link: '',
-      media: '',
-    },
-  ];
+export default function Work({ data, timeline, index }) {
+  // const projects = [
+  //   {
+  //     title: 'First Dance',
+  //     link: '',
+  //     media: '',
+  //   },
+  //   {
+  //     title: 'Cocktail Hour',
+  //     link: '',
+  //     media: '',
+  //   },
+  //   {
+  //     title: 'Dinner Music',
+  //     link: '',
+  //     media: '',
+  //   },
+  //   {
+  //     title: 'After Party',
+  //     link: '',
+  //     media: '',
+  //   },
+  //   {
+  //     title: 'Last Dance',
+  //     link: '',
+  //     media: '',
+  //   },
+  //   {
+  //     title: 'Yet Another Dance',
+  //     link: '',
+  //     media: '',
+  //   },
+  // ];
 
   const elRef = useBoxAnimation(timeline, index);
 
@@ -50,13 +50,14 @@ export default function Work({ timeline, index }) {
         className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'
         ref={containerRef}
       >
-        {projects.map((project, index) => (
+        {data?.projects?.map((project, index) => (
           <ProjectItem
-            key={project.title}
+            key={project?.title}
             project={project}
             index={index}
-            isLast={index === projects.length - 1}
+            isLast={index === data.projects.length - 1}
             handleClick={handleClick}
+            linkIcon={data?.linkIcon}
           />
         ))}
       </div>
@@ -65,32 +66,39 @@ export default function Work({ timeline, index }) {
   );
 }
 
-const ProjectItem = ({ project, index, isLast, handleClick }) => {
+const ProjectItem = ({
+  project = {},
+  index,
+  isLast,
+  handleClick,
+  linkIcon,
+}) => {
   return (
     <button
-      key={project.title}
       onClick={event => handleClick(event)}
-      // onMouseEnter={event => handleClick(event)}
       className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8`}
     >
       <div className='flex w-full items-baseline justify-between'>
+        {/* Title */}
         <h3 className='font-heading text-2xl leading-[100%] 2xl:text-[1.5vw]'>
-          {project.title}
+          {project?.title}
         </h3>
-        {/* Arrow */}
+        {/* Arrow Link */}
         <a
-          href={project.link}
+          href={project?.url}
           target='_blank'
           rel='noopener noreferrer'
           className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow pointer-events-auto mx-1 inline-block`}
         >
-          <Image
-            src='/icons/arrow-icon-black.svg'
-            width={16}
-            height={16}
-            alt='arrow'
-            className='size-[0.875rem] 2xl:size-[0.9vw]'
-          />
+          {linkIcon && (
+            <Image
+              src={linkIcon}
+              width={16}
+              height={16}
+              alt='arrow'
+              className='size-[0.875rem] 2xl:size-[0.9vw]'
+            />
+          )}
         </a>
       </div>
 
@@ -98,12 +106,14 @@ const ProjectItem = ({ project, index, isLast, handleClick }) => {
       <div
         className={`${index === 0 ? 'mt-5 h-auto 2xl:mt-[1.6vh]' : 'h-0'} thumbnail relative aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
       >
-        <Image
-          src='/work.png'
-          alt='bride and groom'
-          fill={true}
-          className='object-cover'
-        />
+        {project?.media && (
+          <Image
+            src={project.media}
+            alt='bride and groom'
+            fill={true}
+            className='object-cover'
+          />
+        )}
       </div>
 
       {/* Border */}

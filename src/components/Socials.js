@@ -1,21 +1,6 @@
 import { useBoxAnimation } from '@/hooks/useAnimation';
 
-export default function Socials({ timeline, index }) {
-  const links = [
-    {
-      title: 'Instagram',
-      url: '',
-    },
-    {
-      title: 'Linkedin',
-      url: '',
-    },
-    {
-      title: 'Pinterest',
-      url: '',
-    },
-  ];
-
+export default function Socials({ data, timeline, index }) {
   const elRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = '-translate-y-full scale-0 opacity-0';
@@ -25,7 +10,7 @@ export default function Socials({ timeline, index }) {
       ref={elRef}
       className={`${preAnimationClass} box flex items-center justify-evenly gap-2`}
     >
-      {links.map(link => (
+      {data?.links?.map(link => (
         <a
           key={link.title}
           href={link.url}

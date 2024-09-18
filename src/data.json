@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "logo": "Bentolio"
+  },
+
+  "intro": {
+    "heading": "Let’s create dance floor <span class='font-extralight italic'> magic</span> for your special day",
+    "icon": "/icons/intro-icon.svg"
+  },
+   
+  "portrait": {
+    "image": "/portrait.png"
+  },
+
+  "about": {
+    "text": "DJ Lisa is a passionate wedding DJ, acclaimed for blending diverse musical genres with expert crowd-reading skills. Based in Florida, she crafts personalized soundtracks that turn every wedding into an unforgettable celebration.",
+    "icon": "/icons/about-icon.svg"
+  },
+
+  "contact": {
+    "label": "Have some questions?",
+    "heading": "Contact <span class='font-extralight italic'>me</span>",
+    "linkIcon": "/icons/arrow-icon.svg"
+  },
+
+  "work": {
+    "projects": [
+      {
+        "title": "First Dance",
+        "url": "",
+        "media": "/work.png"
+      },
+      {
+        "title": "Cocktail Hour",
+        "url": "",
+        "media": "/work.png"
+
+      },
+      {
+        "title": "Dinner Music",
+        "url": "",
+        "media": "/work.png"
+
+      },
+      {
+        "title": "After Party",
+        "url": "",
+        "media": "/work.png"
+
+      },
+      {
+        "title": "Last Dance",
+        "url": "",
+        "media": "/work.png"
+
+      }
+    ],
+    "linkIcon": "/icons/arrow-icon-black.svg"  
+  },
+
+ 
+  "socials": {
+    "links": [
+      {
+        "title": "Figma",
+        "url": ""
+      },
+      {
+        "title": "Instagram",
+        "url": ""
+      },
+      {
+        "title": "Github",
+        "url": ""
+      }
+    ]
+  }
+}
