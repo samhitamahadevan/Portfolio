@@ -8,23 +8,16 @@ import Nav from '@/components/Nav';
 import Portrait from '@/components/Portrait';
 import Socials from '@/components/Socials';
 import Work from '@/components/Work';
-import {
-  useGlobalTimeline,
-  useLoadingBarAnimation,
-} from '@/hooks/useAnimation';
+import { useGlobalTimeline } from '@/hooks/useAnimation';
+import LoadingBar from '@/components/LoadingBar';
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
-  const loadingBarRef = useLoadingBarAnimation(() => setLoaded(true));
-
   const tl = useGlobalTimeline(loaded);
 
   return (
     <main className='w-full'>
-      <div
-        ref={loadingBarRef}
-        className='fixed left-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-primary'
-      />
+      <LoadingBar onFinish={() => setLoaded(true)} />
 
       {/* Bento Grid */}
       <div className='grid h-screen min-h-[800px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none'>

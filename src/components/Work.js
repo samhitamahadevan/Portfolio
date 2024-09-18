@@ -70,6 +70,7 @@ const ProjectItem = ({ project, index, isLast, handleClick }) => {
     <button
       key={project.title}
       onClick={event => handleClick(event)}
+      // onMouseEnter={event => handleClick(event)}
       className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8`}
     >
       <div className='flex w-full items-baseline justify-between'>
