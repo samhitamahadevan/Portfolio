@@ -42,7 +42,10 @@ export default function Work({ timeline, index }) {
   const { containerRef, handleClick } = useWorkAnimation();
 
   return (
-    <div ref={elRef} className={`${preAnimationClass} box z-10 py-8`}>
+    <div
+      ref={elRef}
+      className={`${preAnimationClass} box relative z-10 overflow-hidden py-0`}
+    >
       <div
         className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'
         ref={containerRef}
@@ -57,6 +60,7 @@ export default function Work({ timeline, index }) {
           />
         ))}
       </div>
+      <div className='pointer-events-none absolute bottom-0 left-0 z-10 h-8 w-full bg-gradient-to-b from-white/0 to-white/50'></div>
     </div>
   );
 }
@@ -66,7 +70,7 @@ const ProjectItem = ({ project, index, isLast, handleClick }) => {
     <button
       key={project.title}
       onClick={event => handleClick(event)}
-      className={`${index === 0 ? 'pointer-events-none pb-[1.75rem] pt-0' : 'pointer-events-auto py-[1.75rem]'} ${isLast && 'pb-0'} button relative`}
+      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8`}
     >
       <div className='flex w-full items-baseline justify-between'>
         <h3 className='font-heading text-2xl leading-[100%] 2xl:text-[1.5vw]'>

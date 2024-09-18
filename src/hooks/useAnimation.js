@@ -26,10 +26,10 @@ export const useLoadingBarAnimation = (
   animationConfig = {}
 ) => {
   const loadingBarRef = useRef();
-  const loadingTl = useRef();
+  const timeline = useRef();
 
   useGSAP(() => {
-    loadingTl.current = gsap
+    timeline.current = gsap
       .timeline()
       .to(loadingBarRef.current, {
         scaleX: 1,
@@ -79,17 +79,30 @@ export const useWorkAnimation = () => {
   const { contextSafe } = useGSAP({ scope: containerRef });
 
   const handleClick = contextSafe(event => {
-    gsap.set('.button', { pointerEvents: 'auto' });
-    gsap.to('.thumbnail', { height: 0, marginTop: 0 });
-    gsap.to('.arrow', { autoAlpha: 0 });
-
     const currentButton = event.currentTarget;
     const currentThumbnail = currentButton.querySelector('.thumbnail');
     const currentArrow = currentButton.querySelector('.arrow');
 
-    gsap.set(currentButton, { pointerEvents: 'none' });
-    gsap.to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' });
-    gsap.to(currentArrow, { autoAlpha: 1 });
+    const timeline = gsap.timeline({
+      defaults: { ease: 'expo.out', duration: 0.8 },
+    });
+
+    timeline
+      .set('.button', { pointerEvents: 'auto' })
+      .to(
+        '.thumbnail',
+        {
+          height: 0,
+          marginTop: 0,
+          ease: 'sine.out',
+          duration: 0.5,
+        },
+        0
+      )
+      .to('.arrow', { autoAlpha: 0 }, 0)
+      .set(currentButton, { pointerEvents: 'none' }, 0)
+      .to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' }, 0)
+      .to(currentArrow, { autoAlpha: 1 }, 0);
   });
 
   return { containerRef, handleClick };
