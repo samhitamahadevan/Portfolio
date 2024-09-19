@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
-export const disableAnimation = false;
+export const disableAnimation = true;
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
@@ -161,7 +161,7 @@ export const useArrowAnimation = () => {
       repeat: -1,
       yoyo: true,
       duration: 0.8,
-      ease: 'expo.out',
+      ease: 'sine.inOut',
       yoyoEase: 'none',
     });
   });

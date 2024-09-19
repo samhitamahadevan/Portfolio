@@ -46,7 +46,7 @@ export default function Contact({ data, timeline, index }) {
         </div>
 
         <h2
-          className='pb-2 font-heading text-[3vw] leading-[100%] max-lg:text-[4vw] max-md:text-[7.5vw]'
+          className='pb-2 font-heading text-[3vw] font-medium leading-[100%] max-lg:text-[4vw] max-md:text-[7.5vw]'
           dangerouslySetInnerHTML={{ __html: data?.heading }}
         ></h2>
       </a>

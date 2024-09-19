@@ -18,7 +18,7 @@ export default function Socials({ data, timeline, index }) {
           href={link.url}
           target='_blank'
           rel='noopener noreferrer'
-          className='text-base font-medium uppercase max-md:text-sm 2xl:text-[0.85vw]'
+          className='flex text-base font-medium uppercase leading-[100%] max-md:text-sm 2xl:text-[0.85vw]'
         >
           {link.title}
         </a>

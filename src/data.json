@@ -4,7 +4,7 @@
   },
 
   "intro": {
-    "heading": "Let’s create dance floor <span class='font-extralight italic'> magic</span> for your special day",
+    "heading": "Let’s create dance floor <span class='font-light italic'> magic</span> for your special day",
     "icon": "/icons/intro-icon.svg"
   },
    
@@ -19,7 +19,7 @@
 
   "contact": {
     "label": "Have some questions?",
-    "heading": "Contact <span class='font-extralight italic'>me</span>",
+    "heading": "Contact <span class='font-light italic'>me</span>",
     "linkIcon": "/icons/arrow-icon.svg",
     "email": "hello@rauftech.com"
   },

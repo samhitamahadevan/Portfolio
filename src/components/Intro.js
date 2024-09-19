@@ -23,9 +23,12 @@ export default function Intro({ data, timeline, index }) {
           className='ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'
         />
       )}
+      {/* <h1 className='pb-2 font-heading text-[3vw] font-normal leading-[100%] text-white max-lg:text-[4vw] max-md:text-[7.5vw]'>
+        Contact us
+      </h1> */}
 
       <h1
-        className='max-w-[17ch] pb-8 font-heading text-[3.5vw] font-normal leading-[100%] max-lg:text-[4.5vw] max-md:text-[8vw]'
+        className='max-w-[14ch] pb-8 font-heading text-[3.5vw] font-medium leading-[100%] max-lg:text-[4.5vw] max-md:text-[8vw]'
         dangerouslySetInnerHTML={{ __html: data?.heading }}
       ></h1>
     </div>

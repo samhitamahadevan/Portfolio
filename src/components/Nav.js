@@ -12,7 +12,7 @@ export default function Nav({ data, timeline, index }) {
       className={`${preAnimationClass} box flex items-center justify-center`}
       ref={boxRef}
     >
-      <div className='font-heading text-2xl font-normal 2xl:text-[1.5vw]'>
+      <div className='font-heading text-2xl font-medium 2xl:text-[1.5vw]'>
         {data?.logo}
       </div>
     </nav>

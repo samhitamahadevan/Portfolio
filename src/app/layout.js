@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Fraunces, DM_Sans } from 'next/font/google';
+import { Fraunces, DM_Sans, Cormorant_Garamond } from 'next/font/google';
 import Global from '@/components/Global';
 import './globals.css';
 
@@ -42,12 +42,20 @@ const gilroy = localFont({
 });
 
 const fontHeading = Fraunces({
-  weight: ['400', '200'],
+  weight: ['500', '300'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-heading',
 });
+
+// const fontHeading = Cormorant_Garamond({
+//   weight: ['500', '300'],
+//   style: ['normal', 'italic'],
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-heading',
+// });
 
 const fontBody = DM_Sans({
   weight: ['300', '500'],
