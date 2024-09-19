@@ -61,7 +61,7 @@ const ProjectItem = ({
           href={project?.url}
           target='_blank'
           rel='noopener noreferrer'
-          className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow pointer-events-auto mx-1 inline-block`}
+          className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow pointer-events-auto inline-block px-2`}
         >
           {linkIcon && (
             <Image

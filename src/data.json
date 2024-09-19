@@ -20,7 +20,8 @@
   "contact": {
     "label": "Have some questions?",
     "heading": "Contact <span class='font-extralight italic'>me</span>",
-    "linkIcon": "/icons/arrow-icon.svg"
+    "linkIcon": "/icons/arrow-icon.svg",
+    "email": "hello@rauftech.com"
   },
 
   "work": {

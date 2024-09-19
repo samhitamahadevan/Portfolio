@@ -18,15 +18,22 @@ export default function Contact({ data, timeline, index }) {
           {data?.label}
         </p>
 
-        {data?.linkIcon && (
-          <Image
-            src={data.linkIcon}
-            width={24}
-            height={24}
-            alt='arrow'
-            className='mx-2 size-[1.35rem] 2xl:size-[1.25vw]'
-          />
-        )}
+        <a
+          href={`mailto:${data?.email}`}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='inline-block px-2'
+        >
+          {data?.linkIcon && (
+            <Image
+              src={data.linkIcon}
+              width={24}
+              height={24}
+              alt='arrow'
+              className='size-[1.35rem] 2xl:size-[1.25vw]'
+            />
+          )}
+        </a>
       </div>
 
       <h2
