@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
-export const disableAnimation = true;
+export const disableAnimation = false;
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
@@ -133,11 +133,43 @@ export const useWorkAnimation = () => {
         },
         0
       )
-      .to('.arrow', { autoAlpha: 0 }, 0)
+      .to('.arrow', { autoAlpha: 0, duration: 0.5 }, 0)
       .set(currentButton, { pointerEvents: 'none' }, 0)
       .to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' }, 0)
       .to(currentArrow, { autoAlpha: 1 }, 0);
   });
 
   return { containerRef, handleClick };
+};
+
+export const useArrowAnimation = () => {
+  const containerRef = useRef();
+  const animation = useRef();
+
+  const { contextSafe } = useGSAP(
+    () => {
+      animation.current = gsap.timeline();
+    },
+    { scope: containerRef }
+  );
+
+  const handleMouseEnter = contextSafe(() => {
+    animation.current.kill();
+    animation.current = gsap.timeline().to('.arrow', {
+      xPercent: 50,
+      yPercent: -50,
+      repeat: -1,
+      yoyo: true,
+      duration: 0.8,
+      ease: 'expo.out',
+      yoyoEase: 'none',
+    });
+  });
+
+  const handleMouseLeave = contextSafe(() => {
+    animation.current.kill();
+    animation.current = gsap.to('.arrow', { xPercent: 0, yPercent: 0 });
+  });
+
+  return { containerRef, handleMouseEnter, handleMouseLeave };
 };

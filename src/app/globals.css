@@ -6,7 +6,7 @@
 @layer base {
   /* global styles */
   body {
-    @apply bg-black font-text overscroll-y-none;
+    @apply bg-black font-body font-light overscroll-y-none;
   }
 }
 

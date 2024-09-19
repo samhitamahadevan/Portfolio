@@ -24,25 +24,10 @@ module.exports = {
       },
 
       fontFamily: {
-        heading: ['var(--font-pangaia)', 'serif'],
-        text: ['var(--font-gilroy)', 'sans-serif'],
-      },
-
-      gridTemplateRows: {
-        15: 'repeat(15, minmax(0, 1fr))',
-        22: 'repeat(22, minmax(0, 1fr))',
-
-        19: 'repeat(19, minmax(0, 1fr))',
-        28: 'repeat(28, minmax(0, 1fr))',
-
-        17: 'repeat(17, minmax(0, 1fr))',
-        24: 'repeat(24, minmax(0, 1fr))',
-      },
-
-      gridRow: {
-        'span-14': 'span 14 / span 14',
-
-        'span-18': 'span 18 / span 18',
+        heading: ['var(--font-heading)', 'serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        // heading: ['var(--font-pangaia)', 'serif'],
+        // body: ['var(--font-gilroy)', 'sans-serif'],
       },
     },
   },

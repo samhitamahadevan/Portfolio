@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function About({ data, timeline, index }) {
-  const elRef = useBoxAnimation(timeline, index);
+  const boxRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = getPreBoxAnimationClass(
     '-translate-y-full scale-0 opacity-0'
@@ -10,7 +10,7 @@ export default function About({ data, timeline, index }) {
 
   return (
     <div
-      ref={elRef}
+      ref={boxRef}
       className={`${preAnimationClass} box flex flex-col justify-between gap-4`}
     >
       {/* Icon */}

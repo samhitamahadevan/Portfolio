@@ -1,45 +1,55 @@
 import Image from 'next/image';
-import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
+import {
+  getPreBoxAnimationClass,
+  useArrowAnimation,
+  useBoxAnimation,
+} from '@/hooks/useAnimation';
 
 export default function Contact({ data, timeline, index }) {
-  const elRef = useBoxAnimation(timeline, index);
+  const boxRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = getPreBoxAnimationClass(
     '-translate-y-full scale-0 opacity-0'
   );
 
+  const { containerRef, handleMouseEnter, handleMouseLeave } =
+    useArrowAnimation();
+
   return (
     <div
-      ref={elRef}
-      className={`${preAnimationClass} box flex flex-col justify-between gap-4 bg-secondary text-white`}
+      ref={boxRef}
+      className={`${preAnimationClass} box bg-secondary text-white`}
     >
-      <div className='flex items-center justify-between'>
-        <p className='max-w-[10ch] text-base leading-[120%] 2xl:text-[0.85vw]'>
-          {data?.label}
-        </p>
+      <a
+        ref={containerRef}
+        href={`mailto:${data?.email}`}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='flex h-full w-full flex-col justify-between gap-4'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className='flex items-center justify-between'>
+          <p className='max-w-[10ch] text-base leading-[120%] 2xl:text-[0.85vw]'>
+            {data?.label}
+          </p>
 
-        <a
-          href={`mailto:${data?.email}`}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='inline-block px-2'
-        >
           {data?.linkIcon && (
             <Image
               src={data.linkIcon}
               width={24}
               height={24}
               alt='arrow'
-              className='size-[1.35rem] 2xl:size-[1.25vw]'
+              className='arrow mr-2 size-[1.35rem] 2xl:size-[1.25vw]'
             />
           )}
-        </a>
-      </div>
+        </div>
 
-      <h2
-        className='pb-2 font-heading text-[3vw] leading-[100%] max-lg:text-[4vw] max-md:text-[7.5vw]'
-        dangerouslySetInnerHTML={{ __html: data?.heading }}
-      ></h2>
+        <h2
+          className='pb-2 font-heading text-[3vw] leading-[100%] max-lg:text-[4vw] max-md:text-[7.5vw]'
+          dangerouslySetInnerHTML={{ __html: data?.heading }}
+        ></h2>
+      </a>
     </div>
   );
 }

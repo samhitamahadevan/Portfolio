@@ -1,7 +1,7 @@
 import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Socials({ data, timeline, index }) {
-  const elRef = useBoxAnimation(timeline, index);
+  const boxRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = getPreBoxAnimationClass(
     '-translate-y-full scale-0 opacity-0'
@@ -9,7 +9,7 @@ export default function Socials({ data, timeline, index }) {
 
   return (
     <div
-      ref={elRef}
+      ref={boxRef}
       className={`${preAnimationClass} box flex items-center justify-evenly gap-2`}
     >
       {data?.links?.map(link => (

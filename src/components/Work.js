@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import {
   getPreBoxAnimationClass,
+  useArrowAnimation,
   useBoxAnimation,
   useWorkAnimation,
 } from '@/hooks/useAnimation';
 
 export default function Work({ data, timeline, index }) {
-  const elRef = useBoxAnimation(timeline, index);
+  const boxRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = getPreBoxAnimationClass(
     '-translate-x-full scale-0 opacity-0'
@@ -16,7 +17,7 @@ export default function Work({ data, timeline, index }) {
 
   return (
     <div
-      ref={elRef}
+      ref={boxRef}
       className={`${preAnimationClass} box relative z-10 overflow-hidden py-0`}
     >
       <div
@@ -46,49 +47,53 @@ const ProjectItem = ({
   handleClick,
   linkIcon,
 }) => {
+  const { containerRef, handleMouseEnter, handleMouseLeave } =
+    useArrowAnimation();
+
   return (
     <button
       onClick={event => handleClick(event)}
       className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8`}
     >
-      <div className='flex w-full items-baseline justify-between'>
+      <div
+        className='flex w-full items-baseline justify-between'
+        ref={containerRef}
+      >
         {/* Title */}
-        <h3 className='font-heading text-2xl leading-[100%] 2xl:text-[1.5vw]'>
+        <h3 className='font-heading text-2xl font-normal leading-[100%] 2xl:text-[1.5vw]'>
           {project?.title}
         </h3>
         {/* Arrow Link */}
-        <a
-          href={project?.url}
-          target='_blank'
-          rel='noopener noreferrer'
-          className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow pointer-events-auto inline-block px-2`}
-        >
-          {linkIcon && (
-            <Image
-              src={linkIcon}
-              width={16}
-              height={16}
-              alt='arrow'
-              className='size-[0.875rem] 2xl:size-[0.9vw]'
-            />
-          )}
-        </a>
+        {linkIcon && (
+          <Image
+            src={linkIcon}
+            width={16}
+            height={16}
+            alt='arrow'
+            className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow mr-2 size-[0.875rem] 2xl:size-[0.9vw]`}
+          />
+        )}
       </div>
 
       {/* Thumbnail */}
-      <div
-        className={`${index === 0 ? 'mt-5 h-auto 2xl:mt-[1.6vh]' : 'h-0'} thumbnail relative aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
+      <a
+        href={project?.url}
+        target='_blank'
+        rel='noopener noreferrer'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`${index === 0 ? 'mt-5 h-auto 2xl:mt-[1.6vh]' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
       >
         {project?.media && (
           <Image
             src={project.media}
             alt='bride and groom'
             fill={true}
-            className='object-cover'
+            className='object-cover transition-transform duration-700 ease-out hover:scale-105'
             priority={index === 0 ? true : false}
           />
         )}
-      </div>
+      </a>
 
       {/* Border */}
       {!isLast && (

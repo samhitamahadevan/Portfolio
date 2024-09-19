@@ -1,7 +1,7 @@
 import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Nav({ data, timeline, index }) {
-  const elRef = useBoxAnimation(timeline, index);
+  const boxRef = useBoxAnimation(timeline, index);
 
   const preAnimationClass = getPreBoxAnimationClass(
     'translate-y-full scale-0 opacity-0'
@@ -10,9 +10,11 @@ export default function Nav({ data, timeline, index }) {
   return (
     <nav
       className={`${preAnimationClass} box flex items-center justify-center`}
-      ref={elRef}
+      ref={boxRef}
     >
-      <div className='font-heading text-2xl 2xl:text-[1.5vw]'>{data?.logo}</div>
+      <div className='font-heading text-2xl font-normal 2xl:text-[1.5vw]'>
+        {data?.logo}
+      </div>
     </nav>
   );
 }
