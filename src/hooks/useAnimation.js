@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
-export const disableAnimation = false;
+export const disableAnimation = true;
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();

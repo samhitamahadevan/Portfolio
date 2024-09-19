@@ -24,8 +24,8 @@ module.exports = {
       },
 
       fontFamily: {
-        heading: ['PP Pangaia', 'serif'],
-        text: ['Gilroy', 'sans-serif'],
+        heading: ['var(--font-pangaia)', 'serif'],
+        text: ['var(--font-gilroy)', 'sans-serif'],
       },
 
       gridTemplateRows: {
