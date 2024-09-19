@@ -145,7 +145,6 @@ export const useWorkAnimation = (
       )
       .to(arrowSelector, { autoAlpha: 0, duration: 0.5 }, 0)
       .set(currentButton, { pointerEvents: 'none' }, 0)
-      // use media query
       .to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' }, 0)
       .to(currentArrow, { autoAlpha: 1 }, 0);
   });
