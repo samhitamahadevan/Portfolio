@@ -1,10 +1,12 @@
-import { useBoxAnimation } from '@/hooks/useAnimation';
+import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
 import Image from 'next/image';
 
 export default function Intro({ data, timeline, index }) {
   const elRef = useBoxAnimation(timeline, index);
 
-  const preAnimationClass = 'translate-x-full scale-0 opacity-0';
+  const preAnimationClass = getPreBoxAnimationClass(
+    'translate-x-full scale-0 opacity-0'
+  );
 
   return (
     <div

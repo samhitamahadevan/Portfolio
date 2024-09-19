@@ -1,9 +1,11 @@
-import { useBoxAnimation } from '@/hooks/useAnimation';
+import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
 
 export default function Socials({ data, timeline, index }) {
   const elRef = useBoxAnimation(timeline, index);
 
-  const preAnimationClass = '-translate-y-full scale-0 opacity-0';
+  const preAnimationClass = getPreBoxAnimationClass(
+    '-translate-y-full scale-0 opacity-0'
+  );
 
   return (
     <div

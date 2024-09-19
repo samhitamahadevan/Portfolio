@@ -3,9 +3,13 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
+export const disableAnimation = false;
+
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
   useGSAP(() => {
+    if (disableAnimation) return;
+
     gsap.set(document.body, { overflow: 'hidden' });
     window.scrollTo({ top: 0 });
 
@@ -74,6 +78,36 @@ export const usePortraitAnimation = (timeline, index, animationConfig = {}) => {
   return containerRef;
 };
 
+export const getPreBoxAnimationClass = className =>
+  disableAnimation ? '' : `scale-0 opacity-0 ${className}`;
+
+export const useBoxAnimation = (
+  timeline,
+  index,
+  delay = 0.15,
+  animationConfig = {}
+) => {
+  const elRef = useRef();
+
+  useGSAP(() => {
+    if (!timeline) return;
+
+    timeline.to(
+      elRef.current,
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        ...animationConfig, // Override defaults with custom animation props if passed
+      },
+      index * delay
+    );
+  }, [timeline, index]);
+
+  return elRef;
+};
+
 export const useWorkAnimation = () => {
   const containerRef = useRef();
   const { contextSafe } = useGSAP({ scope: containerRef });
@@ -106,31 +140,4 @@ export const useWorkAnimation = () => {
   });
 
   return { containerRef, handleClick };
-};
-
-export const useBoxAnimation = (
-  timeline,
-  index,
-  delay = 0.15,
-  animationConfig = {}
-) => {
-  const elRef = useRef();
-
-  useGSAP(() => {
-    if (timeline) {
-      timeline.to(
-        elRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          ...animationConfig, // Override defaults with custom animation props if passed
-        },
-        index * delay
-      );
-    }
-  }, [timeline, index]);
-
-  return elRef;
 };

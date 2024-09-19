@@ -8,16 +8,16 @@ import Nav from '@/components/Nav';
 import Portrait from '@/components/Portrait';
 import Socials from '@/components/Socials';
 import Work from '@/components/Work';
-import { useGlobalTimeline } from '@/hooks/useAnimation';
+import { disableAnimation, useGlobalTimeline } from '@/hooks/useAnimation';
 import LoadingBar from '@/components/LoadingBar';
 
 export default function MainGrid({ data = {} }) {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(disableAnimation);
   const tl = useGlobalTimeline(loaded);
 
   return (
     <>
-      <LoadingBar onFinish={() => setLoaded(true)} />
+      {!disableAnimation && <LoadingBar onFinish={() => setLoaded(true)} />}
 
       {/* Bento Grid */}
       <div className='grid h-screen min-h-[800px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none'>

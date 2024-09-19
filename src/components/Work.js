@@ -1,43 +1,16 @@
 import Image from 'next/image';
-import { useBoxAnimation, useWorkAnimation } from '@/hooks/useAnimation';
+import {
+  getPreBoxAnimationClass,
+  useBoxAnimation,
+  useWorkAnimation,
+} from '@/hooks/useAnimation';
 
 export default function Work({ data, timeline, index }) {
-  // const projects = [
-  //   {
-  //     title: 'First Dance',
-  //     link: '',
-  //     media: '',
-  //   },
-  //   {
-  //     title: 'Cocktail Hour',
-  //     link: '',
-  //     media: '',
-  //   },
-  //   {
-  //     title: 'Dinner Music',
-  //     link: '',
-  //     media: '',
-  //   },
-  //   {
-  //     title: 'After Party',
-  //     link: '',
-  //     media: '',
-  //   },
-  //   {
-  //     title: 'Last Dance',
-  //     link: '',
-  //     media: '',
-  //   },
-  //   {
-  //     title: 'Yet Another Dance',
-  //     link: '',
-  //     media: '',
-  //   },
-  // ];
-
   const elRef = useBoxAnimation(timeline, index);
 
-  const preAnimationClass = '-translate-x-full scale-0 opacity-0';
+  const preAnimationClass = getPreBoxAnimationClass(
+    '-translate-x-full scale-0 opacity-0'
+  );
 
   const { containerRef, handleClick } = useWorkAnimation();
 
@@ -112,6 +85,7 @@ const ProjectItem = ({
             alt='bride and groom'
             fill={true}
             className='object-cover'
+            priority={index === 0 ? true : false}
           />
         )}
       </div>
