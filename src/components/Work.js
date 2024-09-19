@@ -53,7 +53,7 @@ const ProjectItem = ({
   return (
     <button
       onClick={event => handleClick(event)}
-      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8`}
+      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8 2xl:py-[1.5vw]`}
     >
       <div
         className='flex w-full items-baseline justify-between'
@@ -64,15 +64,24 @@ const ProjectItem = ({
           {project?.title}
         </h3>
         {/* Arrow Link */}
-        {linkIcon && (
-          <Image
-            src={linkIcon}
-            width={16}
-            height={16}
-            alt='arrow'
-            className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow mr-2 size-[0.875rem] 2xl:size-[0.9vw]`}
-          />
-        )}
+        <a
+          href={project?.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={'pointer-events-auto inline-block px-2'}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {linkIcon && (
+            <Image
+              src={linkIcon}
+              width={16}
+              height={16}
+              alt='arrow'
+              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.875rem] 2xl:size-[0.9vw]`}
+            />
+          )}
+        </a>
       </div>
 
       {/* Thumbnail */}
@@ -82,7 +91,7 @@ const ProjectItem = ({
         rel='noopener noreferrer'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`${index === 0 ? 'mt-5 h-auto 2xl:mt-[1.6vh]' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
+        className={`${index === 0 ? 'mt-5 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
       >
         {project?.media && (
           <Image

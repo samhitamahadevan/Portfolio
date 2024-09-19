@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
-export const disableAnimation = true;
+export const disableAnimation = false;
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
@@ -48,16 +48,22 @@ export const useLoadingBarAnimation = (
   return loadingBarRef;
 };
 
-export const usePortraitAnimation = (timeline, index, animationConfig = {}) => {
+export const usePortraitAnimation = (
+  timeline,
+  index,
+  preLoaderSelector = '.preloader',
+  postLoaderSelector = '.postloader',
+  animationConfig = {}
+) => {
   const containerRef = useRef();
 
   useGSAP(
     () => {
       if (!timeline) return;
 
-      const state = Flip.getState('.loader');
+      const state = Flip.getState(preLoaderSelector);
 
-      Flip.fit('.loader', '.item');
+      Flip.fit(preLoaderSelector, postLoaderSelector);
 
       timeline.add(
         Flip.from(state, {
@@ -65,8 +71,8 @@ export const usePortraitAnimation = (timeline, index, animationConfig = {}) => {
           ease: 'power1.out',
           ...animationConfig,
         })
-          .set('.item', { opacity: 1 })
-          .set('.loader', { visibility: 'hidden' }),
+          .set(postLoaderSelector, { opacity: 1 })
+          .set(preLoaderSelector, { visibility: 'hidden' }),
         0
       );
     },
@@ -108,23 +114,27 @@ export const useBoxAnimation = (
   return elRef;
 };
 
-export const useWorkAnimation = () => {
+export const useWorkAnimation = (
+  buttonSelector = '.button',
+  thumbnailSelector = '.thumbnail',
+  arrowSelector = '.arrow'
+) => {
   const containerRef = useRef();
   const { contextSafe } = useGSAP({ scope: containerRef });
 
   const handleClick = contextSafe(event => {
     const currentButton = event.currentTarget;
-    const currentThumbnail = currentButton.querySelector('.thumbnail');
-    const currentArrow = currentButton.querySelector('.arrow');
+    const currentThumbnail = currentButton.querySelector(thumbnailSelector);
+    const currentArrow = currentButton.querySelector(arrowSelector);
 
     const timeline = gsap.timeline({
       defaults: { ease: 'expo.out', duration: 0.8 },
     });
 
     timeline
-      .set('.button', { pointerEvents: 'auto' })
+      .set(buttonSelector, { pointerEvents: 'auto' })
       .to(
-        '.thumbnail',
+        thumbnailSelector,
         {
           height: 0,
           marginTop: 0,
@@ -133,8 +143,9 @@ export const useWorkAnimation = () => {
         },
         0
       )
-      .to('.arrow', { autoAlpha: 0, duration: 0.5 }, 0)
+      .to(arrowSelector, { autoAlpha: 0, duration: 0.5 }, 0)
       .set(currentButton, { pointerEvents: 'none' }, 0)
+      // use media query
       .to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' }, 0)
       .to(currentArrow, { autoAlpha: 1 }, 0);
   });
@@ -142,7 +153,7 @@ export const useWorkAnimation = () => {
   return { containerRef, handleClick };
 };
 
-export const useArrowAnimation = () => {
+export const useArrowAnimation = (arrowSelector = '.arrow') => {
   const containerRef = useRef();
   const animation = useRef();
 
@@ -155,12 +166,12 @@ export const useArrowAnimation = () => {
 
   const handleMouseEnter = contextSafe(() => {
     animation.current.kill();
-    animation.current = gsap.timeline().to('.arrow', {
+    animation.current = gsap.timeline().to(arrowSelector, {
       xPercent: 50,
       yPercent: -50,
       repeat: -1,
       yoyo: true,
-      duration: 0.8,
+      duration: 0.7,
       ease: 'sine.inOut',
       yoyoEase: 'none',
     });
@@ -168,7 +179,7 @@ export const useArrowAnimation = () => {
 
   const handleMouseLeave = contextSafe(() => {
     animation.current.kill();
-    animation.current = gsap.to('.arrow', { xPercent: 0, yPercent: 0 });
+    animation.current = gsap.to(arrowSelector, { xPercent: 0, yPercent: 0 });
   });
 
   return { containerRef, handleMouseEnter, handleMouseLeave };
