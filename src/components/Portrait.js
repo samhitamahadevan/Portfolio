@@ -13,7 +13,7 @@ export default function Portrait({ data, timeline, index = 0 }) {
   return (
     <div ref={containerRef} className='size-full'>
       <div
-        className={`${preAnimationClass} postloader box relative left-0 top-0 z-20 aspect-auto h-full w-full translate-x-0 translate-y-0 transform bg-secondary`}
+        className={`${preAnimationClass} postloader box relative left-0 top-0 z-20 aspect-square h-full w-full translate-x-0 translate-y-0 transform bg-secondary`}
         data-flip-id='postloader'
       >
         {data?.image && (

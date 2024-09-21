@@ -24,10 +24,14 @@ module.exports = {
       },
 
       fontFamily: {
-        heading: ['var(--font-heading)', 'serif'],
-        body: ['var(--font-body)', 'sans-serif'],
-        // heading: ['var(--font-pangaia)', 'serif'],
-        // body: ['var(--font-gilroy)', 'sans-serif'],
+        // heading: ['var(--font-heading)', 'serif'],
+        // body: ['var(--font-body)', 'sans-serif'],
+        heading: ['var(--font-pangaia)', 'serif'],
+        body: ['var(--font-gilroy)', 'sans-serif'],
+      },
+
+      gridRow: {
+        'span-18': 'span 18 / span 18',
       },
     },
   },
