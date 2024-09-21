@@ -24,8 +24,6 @@ module.exports = {
       },
 
       fontFamily: {
-        // heading: ['var(--font-heading)', 'serif'],
-        // body: ['var(--font-body)', 'sans-serif'],
         heading: ['var(--font-pangaia)', 'serif'],
         body: ['var(--font-gilroy)', 'sans-serif'],
       },
