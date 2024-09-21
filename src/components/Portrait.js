@@ -9,6 +9,9 @@ export default function Portrait({ data, timeline }) {
 
   const preAnimationClass = disableLoadingAnimation ? '' : 'opacity-0';
 
+  const blurDataURL =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjCAvx/A8AA+oB81aCOA0AAAAASUVORK5CYII=';
+
   return (
     <div ref={containerRef} className='size-full'>
       <div
@@ -22,6 +25,8 @@ export default function Portrait({ data, timeline }) {
             alt='black woman'
             className='h-full w-full object-contain object-bottom'
             priority={true}
+            placeholder='blur'
+            blurDataURL={blurDataURL}
           />
         )}
       </div>
@@ -38,6 +43,8 @@ export default function Portrait({ data, timeline }) {
               alt='black woman'
               className='h-full w-full object-contain object-bottom'
               priority={true}
+              placeholder='blur'
+              blurDataURL={blurDataURL}
             />
           )}
         </div>

@@ -55,6 +55,9 @@ const ProjectItem = ({
   const { containerRef, handleMouseEnter, handleMouseLeave } =
     useArrowAnimation();
 
+  const blurDataURL =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjCAvx/A8AA+oB81aCOA0AAAAASUVORK5CYII=';
+
   return (
     <button
       onClick={event => handleClick(event)}
@@ -83,7 +86,7 @@ const ProjectItem = ({
               width={16}
               height={16}
               alt='arrow'
-              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.875rem] 2xl:size-[0.9vw]`}
+              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.9rem] 2xl:size-[0.9vw]`}
             />
           )}
         </a>
@@ -105,6 +108,8 @@ const ProjectItem = ({
             fill={true}
             className='object-cover transition-transform duration-700 ease-out hover:scale-105'
             priority={index === 0 ? true : false}
+            placeholder='blur'
+            blurDataURL={blurDataURL}
           />
         )}
       </a>
