@@ -39,7 +39,7 @@ export default function Work({ data, timeline }) {
             />
           ))}
         </div>
-        <div className='pointer-events-none absolute bottom-0 left-0 z-10 h-8 w-full bg-gradient-to-b from-white/0 to-white/50'></div>
+        <div className='pointer-events-none absolute bottom-0 left-0 z-10 h-8 w-full bg-gradient-to-b from-primary/0 to-primary/50'></div>
       </div>
     </Box>
   );

@@ -1,6 +1,12 @@
 {
   "nav": {
-    "logo": "Bentolio"
+    "logo": "Bentolio",
+    "links": [
+      {
+        "title": "Buy Next.js template",
+        "url": ""
+      }
+    ]
   },
 
   "intro": {
@@ -64,15 +70,15 @@
     "links": [
       {
         "title": "Figma",
-        "url": ""
+        "url": "https://www.figma.com/@lilcoderman"
       },
       {
         "title": "Instagram",
-        "url": ""
+        "url": "https://www.instagram.com/lilcoderman/"
       },
       {
         "title": "Github",
-        "url": ""
+        "url": "https://github.com/abdulrauf11"
       }
     ]
   }
