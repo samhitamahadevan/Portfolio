@@ -1,28 +1,33 @@
-import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
+import Box from './Box';
 
-export default function Socials({ data, timeline, index }) {
-  const boxRef = useBoxAnimation(timeline, index);
-
-  const preAnimationClass = getPreBoxAnimationClass(
-    '-translate-y-full scale-0 opacity-0'
-  );
+export default function Socials({ data, timeline }) {
+  const contentAnimation = delay => {
+    timeline.from(
+      '.social-link',
+      { yPercent: 100, stagger: 0.18 },
+      delay + 0.3
+    );
+  };
 
   return (
-    <div
-      ref={boxRef}
-      className={`${preAnimationClass} box flex items-center justify-evenly gap-2`}
+    <Box
+      timeline={timeline}
+      className='-translate-y-full scale-0 opacity-0'
+      callbackAnimation={contentAnimation}
     >
-      {data?.links?.map(link => (
-        <a
-          key={link.title}
-          href={link.url}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='flex text-base font-medium uppercase leading-[100%] max-md:text-sm 2xl:text-[0.85vw]'
-        >
-          {link.title}
-        </a>
-      ))}
-    </div>
+      <div className='flex size-full items-center justify-evenly gap-2'>
+        {data?.links?.map(link => (
+          <a
+            key={link.title}
+            href={link.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='flex overflow-hidden text-base font-medium uppercase leading-[100%] max-md:text-sm 2xl:text-[0.85vw]'
+          >
+            <span className='social-link inline-block'>{link.title}</span>
+          </a>
+        ))}
+      </div>
+    </Box>
   );
 }

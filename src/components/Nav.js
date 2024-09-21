@@ -1,20 +1,21 @@
-import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
+import Box from './Box';
 
-export default function Nav({ data, timeline, index }) {
-  const boxRef = useBoxAnimation(timeline, index);
-
-  const preAnimationClass = getPreBoxAnimationClass(
-    'translate-y-full scale-0 opacity-0'
-  );
+export default function Nav({ data, timeline }) {
+  const contentAnimation = delay => {
+    timeline.from('.logo', { yPercent: 100 }, delay + 0.3);
+  };
 
   return (
-    <nav
-      className={`${preAnimationClass} box flex items-center justify-center`}
-      ref={boxRef}
+    <Box
+      timeline={timeline}
+      className='translate-y-full scale-0 opacity-0'
+      callbackAnimation={contentAnimation}
     >
-      <div className='font-heading text-2xl font-medium 2xl:text-[1.5vw]'>
-        {data?.logo}
-      </div>
-    </nav>
+      <nav className={'flex size-full items-center justify-center'}>
+        <div className='overflow-hidden font-heading text-2xl font-medium 2xl:text-[1.5vw]'>
+          <span className='logo block'>{data?.logo}</span>
+        </div>
+      </nav>
+    </Box>
   );
 }

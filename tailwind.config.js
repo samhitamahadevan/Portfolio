@@ -29,10 +29,6 @@ module.exports = {
         heading: ['var(--font-pangaia)', 'serif'],
         body: ['var(--font-gilroy)', 'sans-serif'],
       },
-
-      gridRow: {
-        'span-18': 'span 18 / span 18',
-      },
     },
   },
   plugins: [],

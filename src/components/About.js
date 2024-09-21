@@ -1,32 +1,40 @@
 import Image from 'next/image';
-import { getPreBoxAnimationClass, useBoxAnimation } from '@/hooks/useAnimation';
+import Box from './Box';
 
-export default function About({ data, timeline, index }) {
-  const boxRef = useBoxAnimation(timeline, index);
-
-  const preAnimationClass = getPreBoxAnimationClass(
-    '-translate-y-full scale-0 opacity-0'
-  );
+export default function About({ data, timeline }) {
+  const contentAnimation = delay => {
+    const offset = 0.3;
+    timeline
+      .from('.about-text', { opacity: 0, y: 30, duration: 0.8 }, delay + offset)
+      .from(
+        '.about-icon',
+        { opacity: 0, rotate: 180, duration: 1, ease: 'slow.out' },
+        delay + offset
+      );
+  };
 
   return (
-    <div
-      ref={boxRef}
-      className={`${preAnimationClass} box flex flex-col justify-between gap-4`}
+    <Box
+      timeline={timeline}
+      className='-translate-y-full scale-0 opacity-0'
+      callbackAnimation={contentAnimation}
     >
-      {/* Icon */}
-      {data?.icon && (
-        <Image
-          src={data.icon}
-          width={48}
-          height={48}
-          alt='disk'
-          className='size-[2.75rem] 2xl:size-[2.5vw]'
-        />
-      )}
+      <div className='flex size-full flex-col justify-between gap-4'>
+        {/* Icon */}
+        {data?.icon && (
+          <Image
+            src={data.icon}
+            width={48}
+            height={48}
+            alt='disk'
+            className='about-icon size-[2.75rem] 2xl:size-[2.5vw]'
+          />
+        )}
 
-      <p className='max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
-        {data?.text}
-      </p>
-    </div>
+        <p className='about-text max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
+          {data?.text}
+        </p>
+      </div>
+    </Box>
   );
 }

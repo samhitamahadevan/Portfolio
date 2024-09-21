@@ -3,12 +3,12 @@ import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
 
-export const disableAnimation = false;
+export const disableLoadingAnimation = false;
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
   useGSAP(() => {
-    if (disableAnimation) return;
+    if (disableLoadingAnimation) return;
 
     gsap.set(document.body, { overflow: 'hidden' });
     window.scrollTo({ top: 0 });
@@ -25,10 +25,7 @@ export const useGlobalTimeline = loaded => {
   return tl;
 };
 
-export const useLoadingBarAnimation = (
-  callback = () => {},
-  animationConfig = {}
-) => {
+export const useLoadingBarAnimation = (callback = () => {}) => {
   const loadingBarRef = useRef();
   const timeline = useRef();
 
@@ -39,7 +36,6 @@ export const useLoadingBarAnimation = (
         scaleX: 1,
         ease: 'slow.out',
         duration: 1,
-        ...animationConfig,
         onComplete: () => callback(),
       })
       .to(loadingBarRef.current, { autoAlpha: 0 });
@@ -50,10 +46,8 @@ export const useLoadingBarAnimation = (
 
 export const usePortraitAnimation = (
   timeline,
-  index,
   preLoaderSelector = '.preloader',
-  postLoaderSelector = '.postloader',
-  animationConfig = {}
+  postLoaderSelector = '.postloader'
 ) => {
   const containerRef = useRef();
 
@@ -69,7 +63,6 @@ export const usePortraitAnimation = (
         Flip.from(state, {
           duration: 0.4,
           ease: 'power1.out',
-          ...animationConfig,
         })
           .set(postLoaderSelector, { opacity: 1 })
           .set(preLoaderSelector, { visibility: 'hidden' }),
@@ -77,44 +70,45 @@ export const usePortraitAnimation = (
       );
     },
     {
-      dependencies: [timeline, index],
+      dependencies: [timeline],
       scope: containerRef,
     }
   );
   return containerRef;
 };
 
-export const getPreBoxAnimationClass = className =>
-  disableAnimation ? '' : `scale-0 opacity-0 ${className}`;
-
 export const useBoxAnimation = (
   timeline,
-  index,
-  delay = 0.15,
-  animationConfig = {}
+  callbackAnimation = () => {},
+  delay = 0.15
 ) => {
-  const elRef = useRef();
+  const boxRef = useRef();
 
-  useGSAP(() => {
-    if (!timeline) return;
+  useGSAP(
+    () => {
+      if (!timeline) return;
+      timeline.to(
+        boxRef.current,
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scale: 1,
+        },
+        delay
+      );
+      callbackAnimation(delay);
+    },
+    {
+      dependencies: [timeline],
+      scope: boxRef,
+    }
+  );
 
-    timeline.to(
-      elRef.current,
-      {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        ...animationConfig, // Override defaults with custom animation props if passed
-      },
-      index * delay
-    );
-  }, [timeline, index]);
-
-  return elRef;
+  return boxRef;
 };
 
-export const useWorkAnimation = (
+export const useDropdownAnimation = (
   buttonSelector = '.button',
   thumbnailSelector = '.thumbnail',
   arrowSelector = '.arrow'
@@ -145,7 +139,7 @@ export const useWorkAnimation = (
       )
       .to(arrowSelector, { autoAlpha: 0, duration: 0.5 }, 0)
       .set(currentButton, { pointerEvents: 'none' }, 0)
-      .to(currentThumbnail, { height: 'auto', marginTop: '1.25rem' }, 0)
+      .to(currentThumbnail, { height: 'auto', marginTop: '1rem' }, 0)
       .to(currentArrow, { autoAlpha: 1 }, 0);
   });
 

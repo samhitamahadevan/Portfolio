@@ -1,42 +1,47 @@
 import Image from 'next/image';
-import {
-  getPreBoxAnimationClass,
-  useArrowAnimation,
-  useBoxAnimation,
-  useWorkAnimation,
-} from '@/hooks/useAnimation';
+import { useArrowAnimation, useDropdownAnimation } from '@/hooks/useAnimation';
+import Box from './Box';
 
-export default function Work({ data, timeline, index }) {
-  const boxRef = useBoxAnimation(timeline, index);
+export default function Work({ data, timeline }) {
+  const { containerRef, handleClick } = useDropdownAnimation();
 
-  const preAnimationClass = getPreBoxAnimationClass(
-    '-translate-x-full scale-0 opacity-0'
-  );
-
-  const { containerRef, handleClick } = useWorkAnimation();
+  const contentAnimation = delay => {
+    const offset = 0.3;
+    timeline
+      .from('.work-heading', { yPercent: 100, stagger: 0.18 }, delay + offset)
+      .from(
+        '.work-border',
+        { scaleX: 0, stagger: 0.18, ease: 'slow.out' },
+        delay + offset
+      )
+      .from('.thumbnail', { opacity: 0 }, delay + offset);
+  };
 
   return (
-    <div
-      ref={boxRef}
-      className={`${preAnimationClass} box relative z-10 overflow-hidden py-0`}
+    <Box
+      timeline={timeline}
+      className='-translate-x-full scale-0 py-0 opacity-0'
+      callbackAnimation={contentAnimation}
     >
-      <div
-        className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'
-        ref={containerRef}
-      >
-        {data?.projects?.map((project, index) => (
-          <ProjectItem
-            key={project?.title}
-            project={project}
-            index={index}
-            isLast={index === data.projects.length - 1}
-            handleClick={handleClick}
-            linkIcon={data?.linkIcon}
-          />
-        ))}
+      <div className='relative z-10 size-full overflow-hidden'>
+        <div
+          className='hide-scrollbar flex h-full flex-col overflow-y-auto max-lg:overflow-y-visible'
+          ref={containerRef}
+        >
+          {data?.projects?.map((project, index) => (
+            <ProjectItem
+              key={project?.title}
+              project={project}
+              index={index}
+              isLast={index === data.projects.length - 1}
+              handleClick={handleClick}
+              linkIcon={data?.linkIcon}
+            />
+          ))}
+        </div>
+        <div className='pointer-events-none absolute bottom-0 left-0 z-10 h-8 w-full bg-gradient-to-b from-white/0 to-white/50'></div>
       </div>
-      <div className='pointer-events-none absolute bottom-0 left-0 z-10 h-8 w-full bg-gradient-to-b from-white/0 to-white/50'></div>
-    </div>
+    </Box>
   );
 }
 
@@ -53,15 +58,15 @@ const ProjectItem = ({
   return (
     <button
       onClick={event => handleClick(event)}
-      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative py-8 2xl:py-[1.5vw]`}
+      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative pb-[calc(2rem-2px)] pt-[2rem] 2xl:py-[1.5vw]`}
     >
       <div
         className='flex w-full items-baseline justify-between'
         ref={containerRef}
       >
         {/* Title */}
-        <h3 className='font-heading text-2xl font-normal leading-[100%] 2xl:text-[1.5vw]'>
-          {project?.title}
+        <h3 className='overflow-hidden font-heading text-2xl font-normal leading-[100%] 2xl:text-[1.5vw]'>
+          <span className='work-heading block pb-[2px]'>{project?.title}</span>
         </h3>
         {/* Arrow Link */}
         <a
@@ -91,7 +96,7 @@ const ProjectItem = ({
         rel='noopener noreferrer'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`${index === 0 ? 'mt-5 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
+        className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
       >
         {project?.media && (
           <Image
@@ -106,7 +111,7 @@ const ProjectItem = ({
 
       {/* Border */}
       {!isLast && (
-        <div className='absolute bottom-0 left-0 h-[1px] w-full origin-left bg-secondary' />
+        <div className='work-border absolute bottom-0 left-0 h-[1px] w-full origin-left bg-secondary' />
       )}
     </button>
   );

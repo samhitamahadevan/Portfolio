@@ -1,14 +1,13 @@
 import {
-  disableAnimation,
-  getPreBoxAnimationClass,
+  disableLoadingAnimation,
   usePortraitAnimation,
 } from '@/hooks/useAnimation';
 import Image from 'next/image';
 
-export default function Portrait({ data, timeline, index = 0 }) {
-  const containerRef = usePortraitAnimation(timeline, index);
+export default function Portrait({ data, timeline }) {
+  const containerRef = usePortraitAnimation(timeline);
 
-  const preAnimationClass = getPreBoxAnimationClass('scale-100 opacity-0');
+  const preAnimationClass = disableLoadingAnimation ? '' : 'opacity-0';
 
   return (
     <div ref={containerRef} className='size-full'>
@@ -27,7 +26,7 @@ export default function Portrait({ data, timeline, index = 0 }) {
         )}
       </div>
 
-      {!disableAnimation && (
+      {!disableLoadingAnimation && (
         <div
           className='preloader box absolute-center z-30 aspect-[400/450] h-auto w-[30vw] bg-secondary max-md:w-[50vw]'
           data-flip-id='preloader'
