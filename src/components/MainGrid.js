@@ -32,7 +32,7 @@ export default function MainGrid({ data = {} }) {
 
         {/* Left column */}
         <div className='col-span-8 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-full max-lg:grid-rows-none max-lg:gap-4'>
-          <div className='col-span-5 row-span-5 min-h-[18rem] max-lg:col-span-8 max-md:col-span-full'>
+          <div className='col-span-5 row-span-5 min-h-[18yrem] max-lg:col-span-8 max-md:col-span-full'>
             <Intro data={data?.intro} timeline={tl} />
           </div>
 

@@ -31,7 +31,7 @@ export default function About({ data, timeline }) {
           />
         )}
 
-        <p className='about-text max-w-[32ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
+        <p className='about-text max-w-[33ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
           {data?.text}
         </p>
       </div>

@@ -54,7 +54,7 @@ export default function Contact({ data, timeline }) {
           </div>
 
           <h2
-            className='contact-heading pb-2 font-heading text-[3vw] font-medium leading-[100%] max-lg:text-[4vw] max-md:text-[9vw]'
+            className='contact-heading pb-2 font-heading text-[3vw] font-normal leading-[100%] max-lg:text-[4vw] max-md:text-[9vw]'
             dangerouslySetInnerHTML={{ __html: data?.heading }}
           ></h2>
         </a>

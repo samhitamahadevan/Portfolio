@@ -30,7 +30,7 @@ export default function Intro({ data, timeline }) {
           />
         )}
         <h1
-          className='intro-heading max-w-[17ch] pb-8 font-heading text-[3.5vw] font-medium leading-[100%] max-lg:text-[4.5vw] max-md:pb-2 max-md:text-[9vw]'
+          className='intro-heading max-w-[17ch] pb-8 font-heading text-[3.5vw] font-normal leading-[100%] max-lg:text-[4.5vw] max-md:pb-2 max-md:text-[9vw]'
           dangerouslySetInnerHTML={{ __html: data?.heading }}
         ></h1>
       </div>
