@@ -4,6 +4,8 @@ Bentolio is a clean, customizable **one-page portfolio template** built with [Ne
 
 This template is based on my popular [Figma design](https://www.figma.com/community/file/1408441048826723944/bentolio) that inspired its development.
 
+![bentolio-thumbnail](https://github.com/user-attachments/assets/2a171803-d475-4053-893e-7d51e9953d16)
+
 ## Installation
 
 Clone the repository and install dependencies:
