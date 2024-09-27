@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useArrowAnimation, useDropdownAnimation } from '@/hooks/useAnimation';
 import Box from './Box';
-import { BLUR_DATA_URL } from './Global';
+import { BLUR_DATA_URL } from '@/config';
 
 export default function Work({ data, timeline }) {
   const { containerRef, handleClick } = useDropdownAnimation();

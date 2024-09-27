@@ -2,13 +2,12 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Flip } from 'gsap/Flip';
-
-export const disableLoadingAnimation = false;
+import { DISABLE_LOADING_ANIMATION } from '@/config';
 
 export const useGlobalTimeline = loaded => {
   const [tl, setTl] = useState();
   useGSAP(() => {
-    if (disableLoadingAnimation) return;
+    if (DISABLE_LOADING_ANIMATION) return;
 
     gsap.set(document.body, { overflow: 'hidden' });
     window.scrollTo({ top: 0 });

@@ -1,14 +1,11 @@
-import {
-  disableLoadingAnimation,
-  usePortraitAnimation,
-} from '@/hooks/useAnimation';
+import { usePortraitAnimation } from '@/hooks/useAnimation';
 import Image from 'next/image';
-import { BLUR_DATA_URL } from './Global';
+import { BLUR_DATA_URL, DISABLE_LOADING_ANIMATION } from '@/config';
 
 export default function Portrait({ data, timeline }) {
   const containerRef = usePortraitAnimation(timeline);
 
-  const preAnimationClass = disableLoadingAnimation ? '' : 'opacity-0';
+  const preAnimationClass = DISABLE_LOADING_ANIMATION ? '' : 'opacity-0';
 
   return (
     <div ref={containerRef} className='size-full'>
@@ -29,7 +26,7 @@ export default function Portrait({ data, timeline }) {
         )}
       </div>
 
-      {!disableLoadingAnimation && (
+      {!DISABLE_LOADING_ANIMATION && (
         <div
           className='preloader box absolute-center z-30 aspect-[400/450] h-auto w-[30vw] bg-secondary max-md:w-[50vw]'
           data-flip-id='preloader'
