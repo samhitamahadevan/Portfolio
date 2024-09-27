@@ -3,14 +3,12 @@ import {
   usePortraitAnimation,
 } from '@/hooks/useAnimation';
 import Image from 'next/image';
+import { BLUR_DATA_URL } from './Global';
 
 export default function Portrait({ data, timeline }) {
   const containerRef = usePortraitAnimation(timeline);
 
   const preAnimationClass = disableLoadingAnimation ? '' : 'opacity-0';
-
-  const blurDataURL =
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjCAvx/A8AA+oB81aCOA0AAAAASUVORK5CYII=';
 
   return (
     <div ref={containerRef} className='size-full'>
@@ -26,7 +24,7 @@ export default function Portrait({ data, timeline }) {
             className='h-full w-full object-contain object-bottom'
             priority={true}
             placeholder='blur'
-            blurDataURL={blurDataURL}
+            blurDataURL={BLUR_DATA_URL}
           />
         )}
       </div>
@@ -44,7 +42,7 @@ export default function Portrait({ data, timeline }) {
               className='h-full w-full object-contain object-bottom'
               priority={true}
               placeholder='blur'
-              blurDataURL={blurDataURL}
+              blurDataURL={BLUR_DATA_URL}
             />
           )}
         </div>

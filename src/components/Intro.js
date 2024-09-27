@@ -20,15 +20,17 @@ export default function Intro({ data, timeline }) {
     >
       <div className='z-10 flex size-full flex-col justify-between gap-4'>
         {/* Icon */}
-        {data?.icon && (
-          <Image
-            src={data.icon}
-            width={100}
-            height={100}
-            alt='flower'
-            className='intro-icon ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'
-          />
-        )}
+        <div className='ml-auto size-[6vw] max-lg:size-[9vw] max-md:size-[14vw]'>
+          {data?.icon && (
+            <Image
+              src={data.icon}
+              width={100}
+              height={100}
+              alt='flower'
+              className='intro-icon size-full'
+            />
+          )}
+        </div>
         <h1
           className='intro-heading max-w-[17ch] pb-8 font-heading text-[3.5vw] font-normal leading-[100%] max-lg:text-[4.5vw] max-md:pb-2 max-md:text-[9vw]'
           dangerouslySetInnerHTML={{ __html: data?.heading }}

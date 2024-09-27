@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useArrowAnimation, useDropdownAnimation } from '@/hooks/useAnimation';
 import Box from './Box';
+import { BLUR_DATA_URL } from './Global';
 
 export default function Work({ data, timeline }) {
   const { containerRef, handleClick } = useDropdownAnimation();
@@ -55,9 +56,6 @@ const ProjectItem = ({
   const { containerRef, handleMouseEnter, handleMouseLeave } =
     useArrowAnimation();
 
-  const blurDataURL =
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjCAvx/A8AA+oB81aCOA0AAAAASUVORK5CYII=';
-
   return (
     <button
       onClick={event => handleClick(event)}
@@ -109,7 +107,7 @@ const ProjectItem = ({
             className='object-cover transition-transform duration-700 ease-out hover:scale-105'
             priority={index === 0 ? true : false}
             placeholder='blur'
-            blurDataURL={blurDataURL}
+            blurDataURL={BLUR_DATA_URL}
           />
         )}
       </a>

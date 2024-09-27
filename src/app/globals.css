@@ -10,13 +10,13 @@
   }
 
   body {
-    @apply bg-black font-body font-light overscroll-y-none;
+    @apply bg-background font-body font-light overscroll-y-none;
   }
 }
 
 @layer components {
   .box {
-    @apply size-full bg-primary text-black rounded-[20px] py-6 px-6 overflow-hidden;
+    @apply size-full bg-primary text-text rounded-[20px] py-6 px-6 overflow-hidden;
   }
 }
 
