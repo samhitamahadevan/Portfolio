@@ -21,7 +21,7 @@ export default function About({ data, timeline }) {
     >
       <div className='flex size-full flex-col justify-between gap-4'>
         {/* Icon */}
-        <div className='size-[2.75rem] 2xl:size-[2.5vw]'>
+        <div className='size-[2.75rem]'>
           {data?.icon && (
             <Image
               src={data.icon}
@@ -33,7 +33,7 @@ export default function About({ data, timeline }) {
           )}
         </div>
 
-        <p className='about-text max-w-[33ch] pb-2 text-lg leading-[135%] max-lg:max-w-[40ch] max-lg:text-base 2xl:max-w-[44ch] 2xl:text-[0.9vw]'>
+        <p className='about-text max-w-[25rem] pb-2 text-lg leading-[135%]'>
           {data?.text}
         </p>
       </div>

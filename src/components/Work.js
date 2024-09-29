@@ -59,14 +59,14 @@ const ProjectItem = ({
   return (
     <button
       onClick={event => handleClick(event)}
-      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative pb-[calc(2rem-2px)] pt-[2rem] 2xl:py-[1.5vw]`}
+      className={`${index === 0 ? 'pointer-events-none' : 'pointer-events-auto'} button relative pb-[calc(1.8rem-2px)] pt-[1.8rem]`}
     >
       <div
         className='flex w-full items-baseline justify-between'
         ref={containerRef}
       >
         {/* Title */}
-        <h3 className='overflow-hidden font-heading text-2xl font-normal leading-[100%] 2xl:text-[1.5vw]'>
+        <h3 className='overflow-hidden font-heading text-2xl font-normal leading-[100%]'>
           <span className='work-heading block pb-[2px]'>{project?.title}</span>
         </h3>
         {/* Arrow Link */}
@@ -84,7 +84,7 @@ const ProjectItem = ({
               width={16}
               height={16}
               alt='arrow'
-              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.9rem] 2xl:size-[0.9vw]`}
+              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.9rem]`}
             />
           )}
         </a>
@@ -97,7 +97,7 @@ const ProjectItem = ({
         rel='noopener noreferrer'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[20px] bg-secondary`}
+        className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[16px] bg-secondary`}
       >
         {project?.media && (
           <Image

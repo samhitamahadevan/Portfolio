@@ -38,7 +38,7 @@ export default function Contact({ data, timeline }) {
           onMouseLeave={handleMouseLeave}
         >
           <div className='contact-bar flex items-center justify-between'>
-            <p className='max-w-[10ch] text-base leading-[120%] 2xl:text-[0.85vw]'>
+            <p className='max-w-[10ch] text-base leading-[120%]'>
               {data?.label}
             </p>
 
@@ -48,13 +48,13 @@ export default function Contact({ data, timeline }) {
                 width={24}
                 height={24}
                 alt='arrow'
-                className='arrow mr-2 size-[1.35rem] 2xl:size-[1.25vw]'
+                className='arrow mr-2 size-[1.35rem]'
               />
             )}
           </div>
 
           <h2
-            className='contact-heading pb-2 font-heading text-[3vw] font-normal leading-[100%] max-lg:text-[4vw] max-md:text-[9vw]'
+            className='contact-heading pb-2 font-heading text-[3.2rem] font-normal leading-[100%]'
             dangerouslySetInnerHTML={{ __html: data?.heading }}
           ></h2>
         </a>

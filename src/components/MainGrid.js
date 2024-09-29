@@ -23,14 +23,14 @@ export default function MainGrid({ data = {} }) {
       )}
 
       {/* Bento Grid */}
-      <div className='grid h-screen min-h-[45rem] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none max-lg:py-6'>
+      <div className='grid h-screen min-h-[700px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none max-lg:py-6'>
         <div className='col-span-full row-span-1'>
           <Nav data={data?.nav} timeline={tl} />
         </div>
 
         {/* Left column */}
         <div className='col-span-8 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-full max-lg:grid-rows-none max-lg:gap-4'>
-          <div className='col-span-5 row-span-5 min-h-[18yrem] max-lg:col-span-8 max-md:col-span-full'>
+          <div className='col-span-5 row-span-5 min-h-[288px] max-lg:col-span-8 max-md:col-span-full'>
             <Intro data={data?.intro} timeline={tl} />
           </div>
 
@@ -38,11 +38,11 @@ export default function MainGrid({ data = {} }) {
             <Portrait data={data?.portrait} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-4 min-h-[18rem] max-lg:col-span-6 max-md:col-span-full'>
+          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:col-span-full'>
             <About data={data?.about} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-4 min-h-[18rem] max-lg:col-span-6 max-md:col-span-full'>
+          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:col-span-full'>
             <Contact data={data?.contact} timeline={tl} />
           </div>
         </div>
