@@ -42,7 +42,7 @@ export default function MainGrid({ data = {} }) {
             <About data={data?.about} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:col-span-full'>
+          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:hidden'>
             <Contact data={data?.contact} timeline={tl} />
           </div>
         </div>
@@ -51,6 +51,10 @@ export default function MainGrid({ data = {} }) {
         <div className='col-span-4 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-full max-lg:grid-rows-none max-lg:gap-4'>
           <div className='col-span-4 row-span-8 max-lg:col-span-full'>
             <Work data={data?.work} timeline={tl} />
+          </div>
+
+          <div className='col-span-full hidden min-h-[288px] max-md:block'>
+            <Contact data={data?.contact} timeline={tl} />
           </div>
 
           <div className='col-span-4 row-span-1 max-lg:col-span-full'>

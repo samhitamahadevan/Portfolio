@@ -43,7 +43,7 @@ export const useLoadingBarAnimation = (callback = () => {}) => {
   return loadingBarRef;
 };
 
-export const usePortraitAnimation = (
+export const usePortraitAnimationShort = (
   timeline,
   preLoaderSelector = '.preloader',
   postLoaderSelector = '.postloader'
@@ -61,7 +61,7 @@ export const usePortraitAnimation = (
       timeline.add(
         Flip.from(state, {
           duration: 0.4,
-          ease: 'power1.out',
+          ease: 'power2.out',
         })
           .set(postLoaderSelector, { opacity: 1 })
           .set(preLoaderSelector, { visibility: 'hidden' }),
@@ -76,10 +76,51 @@ export const usePortraitAnimation = (
   return containerRef;
 };
 
+export const usePortraitAnimation = (
+  timeline,
+  preLoaderSelector = '.preloader',
+  postLoaderSelector = '.postloader'
+) => {
+  const containerRef = useRef();
+
+  useGSAP(
+    () => {
+      if (!timeline) return;
+
+      timeline.to(
+        preLoaderSelector,
+        {
+          scale: 0.8,
+          duration: 0.4,
+          ease: 'sine.out',
+          onComplete: () => {
+            const state = Flip.getState(preLoaderSelector);
+            Flip.fit(preLoaderSelector, postLoaderSelector);
+            Flip.from(state, {
+              duration: 0.4,
+              ease: 'power2.out',
+              delay: 0.2,
+            })
+              .set(preLoaderSelector, { visibility: 'hidden' })
+              .set(postLoaderSelector, { opacity: 1 });
+          },
+        },
+        0
+      );
+    },
+    {
+      dependencies: [timeline],
+      scope: containerRef,
+    }
+  );
+
+  return containerRef;
+};
+
 export const useBoxAnimation = (
   timeline,
   callbackAnimation = () => {},
-  delay = 0.15
+  delay = 0.7
 ) => {
   const boxRef = useRef();
 
@@ -93,6 +134,8 @@ export const useBoxAnimation = (
           y: 0,
           opacity: 1,
           scale: 1,
+          ease: 'power2.out',
+          duration: 0.4,
         },
         delay
       );

@@ -8,14 +8,6 @@ module.exports = {
     './src/data.json',
   ],
   theme: {
-    // screens: {
-    //   sm: '640px',
-    //   md: '768px',
-    //   lg: '1180px',
-    //   xl: '1440px',
-    //   '2xl': '2000px',
-    // },
-
     extend: {
       colors: {
         primary: '#D8CFBC',
