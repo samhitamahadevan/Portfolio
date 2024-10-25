@@ -23,14 +23,14 @@ export default function MainGrid({ data = {} }) {
       )}
 
       {/* Bento Grid */}
-      <div className='grid h-screen min-h-[700px] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:grid-rows-none max-lg:py-6'>
+      <div className='grid h-screen max-h-[75rem] min-h-[50rem] grid-cols-12 grid-rows-10 gap-4 p-4 max-lg:h-auto max-lg:max-h-none max-lg:grid-rows-none max-lg:py-6'>
         <div className='col-span-full row-span-1'>
           <Nav data={data?.nav} timeline={tl} />
         </div>
 
         {/* Left column */}
         <div className='col-span-8 row-span-9 grid grid-cols-subgrid grid-rows-subgrid max-lg:col-span-full max-lg:grid-rows-none max-lg:gap-4'>
-          <div className='col-span-5 row-span-5 min-h-[288px] max-lg:col-span-8 max-md:col-span-full'>
+          <div className='col-span-5 row-span-5 max-lg:col-span-8 max-md:col-span-full'>
             <Intro data={data?.intro} timeline={tl} />
           </div>
 
@@ -38,11 +38,11 @@ export default function MainGrid({ data = {} }) {
             <Portrait data={data?.portrait} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:col-span-full'>
+          <div className='col-span-4 row-span-4 max-lg:col-span-6 max-lg:min-h-[20rem] max-md:col-span-full'>
             <About data={data?.about} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-4 min-h-[288px] max-lg:col-span-6 max-md:hidden'>
+          <div className='col-span-4 row-span-4 max-lg:col-span-6 max-lg:min-h-[20rem] max-md:hidden'>
             <Contact data={data?.contact} timeline={tl} />
           </div>
         </div>
@@ -53,11 +53,11 @@ export default function MainGrid({ data = {} }) {
             <Work data={data?.work} timeline={tl} />
           </div>
 
-          <div className='col-span-full hidden min-h-[288px] max-md:block'>
+          <div className='col-span-full hidden max-lg:min-h-[20rem] max-md:block'>
             <Contact data={data?.contact} timeline={tl} />
           </div>
 
-          <div className='col-span-4 row-span-1 max-lg:col-span-full'>
+          <div className='col-span-4 row-span-1 max-lg:col-span-full max-lg:min-h-[5rem]'>
             <Socials data={data?.socials} timeline={tl} />
           </div>
         </div>
