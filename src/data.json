@@ -1,25 +1,24 @@
 {
   "nav": {
-    "logo": "Bentolio",
+    "logo": "Samhita Mahadevan",
     "links": [
       {
-        "title": "Buy Next.js template",
-        "url": "https://rauftech.lemonsqueezy.com/buy/43d4f6ca-c525-497f-a77a-8148150335dc"
+        "title": "Resume/CV",
+        "url": "https://samhitamahadevan.github.io/Resume/"
       }
     ]
   },
 
   "intro": {
-    "heading": "Let’s create dance floor <span class='italic'> magic</span> for your special day",
+    "heading": "A passionate Computer Science graduate student with a strong affinity for AI, driven by innovation and committed to creating impactful solutions.",
     "icon": "/icons/intro-icon.svg"
   },
    
   "portrait": {
-    "image": "/portrait.png"
+    "image": "/portrait3.jpeg"
   },
-
   "about": {
-    "text": "DJ Lisa is a passionate wedding DJ, acclaimed for blending diverse musical genres with expert crowd-reading skills. Based in Florida, she crafts personalized soundtracks that turn every wedding into an unforgettable celebration.",
+    "text": "As a Master’s candidate in Computer Science at Purdue University, graduating in May 2025, I am currently a Graduate Research Assistant focused on applying LLMs in Digital Forensics. My technical journey, rooted at Anna University, includes roles at Striim Inc., Deep Cognition Inc., and Cardea Health, providing diverse experience across technology domains. I excel at transforming concepts into reality, delivering impactful AI and ML solutions. Outside of work, I enjoy swimming and playing trivia, balancing my professional aspirations with a sense of curiosity. I’m always excited to collaborate on cutting-edge Machine Learning and AI projects.",
     "icon": "/icons/about-icon.svg"
   },
 
@@ -27,36 +26,120 @@
     "label": "Have some questions?",
     "heading": "Contact <span class='italic'>me</span>",
     "linkIcon": "/icons/arrow-icon.svg",
-    "email": "hello@rauftech.com"
+    "email": "mahades@purdue.edu"
   },
 
   "work": {
     "projects": [
       {
-        "title": "First Dance",
+        "title": "Experience",
+        "experience": [
+          "Graduate Research Assistant - Purdue University - August 2024 - Present" ,
+          "Software Engineer Intern - Striim Inc. - June 2024 - August 2024",
+          "Artificial Intelligence Intern - Deep Cognition Inc. - Feb 2024 - April 2024",
+          "Machine Learning Intern - CardeaHealth - November 2024 - Janurary 2023"
+        ],
         "url": "",
         "media": "/work.png"
       },
       {
-        "title": "Cocktail Hour",
+        "title": "Education",
+        "education": [
+          {
+            "institution": "Purdue University",
+            "url": "https://www.cs.purdue.edu/people/graduate-students/mahades.html",
+            "degree": "Masters of Science in Computer Science - August 2023 - May 2025"
+          },
+          {
+            "institution": "College of Engineering Guindy, Anna University",
+            "url": "https://in.linkedin.com/school/college-of-engineering-guindy/?trk=public_profile_school",
+            "degree": "Bachelors of Engineering in Computer Science and Engineering - July 2019 - June 2023"
+          }
+        ],
         "url": "",
         "media": "/work.png"
+      },
+      {
+        "title": "Projects",
+        "academic": [
+          {
+            "title": "Consensus-Driven LLM Chess Strategy: Merging and Debating LLMs for Enhanced AI Gameplay",
+            "url": "https://github.com/shreyash2106/LLM_Chess_Team"
+          },
+          {
+            "title": "Reinforcement Learning for Robust LLM Code Generation with Vulnerability Detection",
+            "url": "https://github.com/gneeraj2001/SecureVul_AISE"
+          },
+          {
+            "title": "3D Face Reconstruction using a Single RGB Image using Self-Supervised Learning",
+            "url": "https://drive.google.com/file/d/1lFHc87rtBQF88ZQyUkpdDzzhO6-LTGH0/view?usp=drive_link"
+          },
+          {
+            "title": "Dynamic Music Recommender using Collaborative Filtering, Content-Based Approaches, and LLM-Powered Prompt Techniques",
+            "url": "https://github.com/shreyash2106/CS573_Final_Project"
+          },
+          {
+            "title":"High-Definition 4K Live Streaming: A MultiTCP Approach to Boost Reliability and Minimize Latency",
+            "url":"https://github.com/samhitamahadevan/Streem/blob/main/Report_Streem.pdf"
+          }
+        ],
+        "url": "",
+        "media": "/work.png"
+      },
+      {
+        "title": "Skills",
+        "skills": [
+          {
+            "category": "Languages",
+            "items": ["Python","Java","C++","C",
+              "HTML/CSS",
+              "JavaScript",
+              "SQL"
+            ]
+          },
+          {
+            "category": "Developer Tools",
+            "items": [
+              "VS Code",
+              "Eclipse",
+              "Google Cloud Platform",
+              "Jupyter Notebook",
+              "AWS",
+              "HuggingFace"
+            ]
+          },
+          {
+            "category": "Technologies/Frameworks",
+            "items": [
+              "Linux",
+              "Docker",
+              "GitHub",
+              "PyTorch",
+              "TensorFlow"
+            ]
+          }
+        ],
+        "url": "",
+        "media": "/work.png"
+      },
 
-      },
       {
-        "title": "Dinner Music",
-        "url": "",
-        "media": "/work.png"
-
-      },
-      {
-        "title": "After Party",
-        "url": "",
-        "media": "/work.png"
-
-      },
-      {
-        "title": "Last Dance",
+        "title": "Awards and Publications",
+        "awards_and_publications": [
+          {
+            "title": "All India Manufacturers Organisation Industrial Research and Development Trust (AIMO Award) Endowment",
+            "institution": "Anna University"
+          },
+          {
+            "title": "Centre for Intellectual Property Best Project Award",
+            "institution": "Anna University"
+          },
+          {
+            "title": "ARDL-IDS: Adversarial Resilience in Deep Learning-based Intrusion Detection Systems",
+            "publication": "In 2023 International Conference on Wireless Communications Signal Processing and Networking (WiSPNET), 2023, IEEE",
+            "url": "https://ieeexplore.ieee.org/document/10134456/"
+          }
+        ],
         "url": "",
         "media": "/work.png"
       }
@@ -68,16 +151,12 @@
   "socials": {
     "links": [
       {
-        "title": "Figma",
-        "url": "https://www.figma.com/@lilcoderman"
-      },
-      {
-        "title": "Instagram",
-        "url": "https://www.instagram.com/lilcoderman/"
+        "title": "Linkedin",
+        "url": "https://www.linkedin.com/in/samhita-mahadevan/"
       },
       {
         "title": "Github",
-        "url": "https://github.com/abdulrauf11"
+        "url": "https://github.com/samhitamahadevan"
       }
     ]
   }

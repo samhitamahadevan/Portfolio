@@ -10,7 +10,7 @@ export default function Portrait({ data, timeline }) {
   return (
     <div ref={containerRef} className='size-full'>
       <div
-        className={`${preAnimationClass} postloader box relative left-0 top-0 z-20 aspect-square h-full w-full translate-x-0 translate-y-0 transform bg-secondary`}
+        className={`${preAnimationClass} postloader box relative left-0 top-0 z-20 aspect-[400/450] h-auto w-full translate-x-0 translate-y-0 transform bg-secondary`}
         data-flip-id='postloader'
       >
         {data?.image && (
@@ -18,7 +18,7 @@ export default function Portrait({ data, timeline }) {
             src={data.image}
             fill={true}
             alt='black woman'
-            className='h-full w-full object-contain object-bottom'
+            className='h-full w-full object-contain object-center'
             priority={true}
             placeholder='blur'
             blurDataURL={BLUR_DATA_URL}
