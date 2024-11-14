@@ -90,120 +90,117 @@ const ProjectItem = ({
         </a>
       </div>
 
-      {/* Thumbnail */}
-      <a
-        href={project?.url}
-        target='_blank'
-        rel='noopener noreferrer'
+      {/* Thumbnail and Content */}
+      <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[16px] `}
       >
-      <div className="p-4  rounded-[16px]">
-  {/* Experience */}
-  {Array.isArray(project.experience) && (
-    <div className="mb-4">
-      <ul className="text-gray-700 text-left about-text space-y-2">
-        {project.experience.map((item, idx) => (
-          <li key={idx} className="text-left">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )}
-
-{Array.isArray(project.education) && (
-  <div className="mb-4">
-    <ul className="text-gray-700 text-left about-text space-y-2">
-      {project.education.map((item, idx) => (
-        <li key={idx} className="text-left">
-          {item.url ? (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {item.institution}
-            </a>
-          ) : (
-            item.institution
+        {/* Replacing <a> with a <div> */}
+        <div className="p-4 rounded-[16px]">
+          {/* Experience */}
+          {Array.isArray(project.experience) && (
+            <div className="mb-4">
+              <ul className="text-gray-700 text-left about-text space-y-2">
+                {project.experience.map((item, idx) => (
+                  <li key={idx} className="text-left">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
-          {" "} - {item.degree}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-  
-{/* Projects */}
-{Array.isArray(project.academic) && (
-  <div className="mb-4">
-    <ul className="text-gray-700 text-left about-text space-y-2">
-      {project.academic.map((item, idx) => (
-        <li key={idx} className="text-left">
-          {item.url ? (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {item.title}
-            </a>
-          ) : (
-            <span>{item.title}</span>
-          )}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
 
-{/* Skills */}
-{Array.isArray(project.skills) && (
-  <div className="mb-4">
-    {project.skills.map((skillCategory, idx) => (
-      <div key={idx} className="mb-2">
-        {/* Skill Category and Items */}
-        <p className="text-gray-700 text-left">
-          <span className="font-semibold">{skillCategory.category}:</span> {skillCategory.items.join(', ')}
-        </p>
+          {/* Education */}
+          {Array.isArray(project.education) && (
+            <div className="mb-4">
+              <ul className="text-gray-700 text-left about-text space-y-2">
+                {project.education.map((item, idx) => (
+                  <li key={idx} className="text-left">
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {item.institution}
+                      </a>
+                    ) : (
+                      item.institution
+                    )}
+                    {" "} - {item.degree}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Projects */}
+          {Array.isArray(project.academic) && (
+            <div className="mb-4">
+              <ul className="text-gray-700 text-left about-text space-y-2">
+                {project.academic.map((item, idx) => (
+                  <li key={idx} className="text-left">
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <span>{item.title}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Skills */}
+          {Array.isArray(project.skills) && (
+            <div className="mb-4">
+              {project.skills.map((skillCategory, idx) => (
+                <div key={idx} className="mb-2">
+                  {/* Skill Category and Items */}
+                  <p className="text-gray-700 text-left">
+                    <span className="font-semibold">{skillCategory.category}:</span> {skillCategory.items.join(', ')}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Awards and Publications */}
+          {Array.isArray(project.awards_and_publications) && (
+            <div className="mb-4">
+              <ul className="text-gray-700 text-left about-text space-y-2">
+                {project.awards_and_publications.map((item, idx) => (
+                  <li key={idx} className="text-lg">
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <span>{item.title}</span>
+                    )}
+                    {item.institution && ` - ${item.institution}`}
+                    {item.publication && `, ${item.publication}`}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
-    ))}
-  </div>
-)}
-{/* Awards and Publications */}
-{Array.isArray(project.awards_and_publications) && (
-  <div className="mb-4">
-    <ul className="text-gray-700 text-left about-text space-y-2">
-      {project.awards_and_publications.map((item, idx) => (
-        <li key={idx} className="text-lg">
-          {item.url ? (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {item.title}
-            </a>
-          ) : (
-            <span>{item.title}</span>
-          )}
-          {item.institution && ` - ${item.institution}`}
-          {item.publication && `, ${item.publication}`}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-
-
-</div>
-</a>
-
 
       {/* Border */}
       {!isLast && (
