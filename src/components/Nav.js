@@ -15,7 +15,7 @@ export default function Nav({ data, timeline }) {
     >
       <nav className='flex size-full items-center justify-between max-lg:gap-4 max-md:flex-col max-md:justify-center'>
         <div className='logo overflow-hidden font-heading text-2xl font-normal'>
-          <span className='block'>{data?.logo}</span>
+          <span className='block' dangerouslySetInnerHTML={{ __html: data?.logo }}></span>
         </div>
         <div className='cta flex items-center gap-4'>
           {data?.links?.map(link => (

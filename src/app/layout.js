@@ -1,4 +1,4 @@
-import { DM_Sans, DM_Serif_Display } from 'next/font/google';
+import localFont from 'next/font/local';
 import Global from '@/components/Global';
 import './globals.css';
 
@@ -8,19 +8,40 @@ export const metadata = {
     'Samhita Mahadevan Portfolio',
 };
 
-const fontHeading = DM_Serif_Display({
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
+const fontHeading = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Gilroy-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Gilroy-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Gilroy-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
   variable: '--font-heading',
 });
 
-const fontBody = DM_Sans({
-  weight: ['300', '500'],
-  style: 'normal',
-  subsets: ['latin'],
-  display: 'swap',
+const fontBody = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Gilroy-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Gilroy-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
   variable: '--font-body',
 });
 

@@ -27,12 +27,12 @@ export default function Intro({ data, timeline }) {
               width={100}
               height={100}
               alt='flower'
-              className='intro-icon size-full'
+              className='intro-icon size-full [&_path]:fill-[#F8AFA6]'
             />
           )}
         </div>
         <h1
-          className='intro-heading max-w-[35rem] pb-8 font-heading text-[2.4rem] font-normal leading-[100%]'
+          className='intro-heading max-w-[42rem] pb-8 font-heading text-[3rem] font-semibold leading-[1.1]'
           dangerouslySetInnerHTML={{ __html: data?.heading }}
         ></h1>
       </div>

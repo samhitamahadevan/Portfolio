@@ -37,16 +37,16 @@ export default function About({ data, timeline }) {
 
         <p className='about-text max-w-[28rem] pb-2 text-base leading-[135%]'>
           {/* {data?.text} */}
-          As a Master’s candidate in Computer Science at Purdue University, graduating in May 2025, I am currently a Graduate Research Assistant focused on applying LLMs in Digital Forensics. My technical journey, rooted at Anna University, includes roles at{' '}
+          cs master's candidate at purdue (2025) with experience as a graduate research assistant in applying foundational models to digital forensics. my technical journey, rooted at anna university, includes roles at {' '}
         <a href="https://www.striim.com" target="_blank" rel="noopener noreferrer" className="underline">
-          Striim Inc.
+          striim Inc.
         </a>,{' '}
         <a href="https://www.deepcognition.ai" target="_blank" rel="noopener noreferrer" className="underline">
-          Deep Cognition Inc.
+          deep cognition inc.
         </a>, and{' '}
         <a href="https://cardeahealth.io" target="_blank" rel="noopener noreferrer" className="underline">
-          Cardea Health
-        </a>, providing diverse experience across technology domains. I excel at transforming concepts into reality, delivering impactful AI and ML solutions. Outside of work, I enjoy swimming and playing trivia, balancing my professional aspirations with a sense of curiosity. I’m always excited to collaborate on cutting-edge Machine Learning and AI projects.
+          cardea health
+        </a>,providing diverse experience across technology domains. i'm passionate about transforming concepts into reality, delivering impactful ai solutions that solve real problems. beyond tech, i find balance through swimming and trivia games. always eager to collaborate on innovative ml/ai projects that push boundaries and satisfy my natural curiosity.
         </p>
       </div>
     </Box>

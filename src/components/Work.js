@@ -66,7 +66,7 @@ const ProjectItem = ({
         ref={containerRef}
       >
         {/* Title */}
-        <h3 className='overflow-hidden font-heading text-2xl font-normal leading-[100%]'>
+        <h3 className='overflow-hidden font-heading text-2xl font-semibold leading-[100%]'>
           <span className='work-heading block pb-[2px]'>{project?.title}</span>
         </h3>
         {/* Arrow Link */}
@@ -84,7 +84,7 @@ const ProjectItem = ({
               width={16}
               height={16}
               alt='arrow'
-              className={`${index === 0 ? 'opacity-1' : 'opacity-0'} arrow size-[0.9rem]`}
+              className='arrow size-[0.9rem]'
             />
           )}
         </a>

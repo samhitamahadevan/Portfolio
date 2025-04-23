@@ -24,7 +24,7 @@ export default function Contact({ data, timeline }) {
   return (
     <Box
       timeline={timeline}
-      className='-translate-y-full scale-0 bg-secondary text-primary opacity-0'
+      className='-translate-y-full scale-0 bg-secondary text-black opacity-0'
       callbackAnimation={contentAnimation}
     >
       <div className='size-full'>
@@ -44,7 +44,7 @@ export default function Contact({ data, timeline }) {
 
             {data?.linkIcon && (
               <Image
-                src={data.linkIcon}
+                src="/icons/arrow-icon-black.svg"
                 width={24}
                 height={24}
                 alt='arrow'

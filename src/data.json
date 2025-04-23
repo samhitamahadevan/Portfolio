@@ -1,6 +1,6 @@
 {
   "nav": {
-    "logo": "Samhita Mahadevan",
+    "logo": "<span class='italic'>SAMHITA</span> <span class='font-semibold'>MAHADEVAN</span>",
     "links": [
       {
         "title": "Resume/CV",
@@ -8,135 +8,134 @@
       }
     ]
   },
-
   "intro": {
-    "heading": "A passionate Computer Science graduate student with a strong affinity for AI, driven by innovation and committed to creating impactful solutions.",
+    "heading": "<span class='font-normal italic'>curious</span> ai enthusiast building intelligent systems that deliver <span class='font-normal italic'>practical</span> solutions",
     "icon": "/icons/intro-icon.svg"
   },
-   
   "portrait": {
-    "image": "/portrait9.jpeg"
+    "image": "/pic.jpg"
   },
   "about": {
-    "text": "As a Master’s candidate in Computer Science at Purdue University, graduating in May 2025, I am currently a Graduate Research Assistant focused on applying LLMs in Digital Forensics. My technical journey, rooted at Anna University, includes roles at Striim Inc., Deep Cognition Inc., and Cardea Health, providing diverse experience across technology domains. I excel at transforming concepts into reality, delivering impactful AI and ML solutions. Outside of work, I enjoy swimming and playing trivia, balancing my professional aspirations with a sense of curiosity. I’m always excited to collaborate on cutting-edge Machine Learning and AI projects.",
+    "text": "cs master's candidate at purdue (2025) with experience as a graduate research assistant in applying foundational models to digital forensics. my technical journey, rooted at anna university, includes roles at striim inc., deep cognition inc., and cardea health, providing diverse experience across technology domains. i'm passionate about transforming concepts into reality, delivering impactful ai solutions that solve real problems. beyond tech, i find balance through swimming and trivia games. always eager to collaborate on innovative ml/ai projects that push boundaries and satisfy my natural curiosity.RetryClaude can make mistakes. Please double-check responses.",
     "icon": "/icons/about-icon.svg"
   },
-
   "contact": {
-    "label": "Have some questions?",
-    "heading": "Contact <span class='italic'>me</span>",
+    "label": "have some questions?",
+    "heading": "contact <span class='italic'>me</span>",
     "linkIcon": "/icons/arrow-icon.svg",
     "email": "mahades@purdue.edu"
   },
-
   "work": {
     "projects": [
       {
-        "title": "Experience",
+        "title": "experience",
         "experience": [
-          "Graduate Research Assistant - Purdue University - August 2024 - Present" ,
-          "Software Engineer Intern - Striim Inc. - June 2024 - August 2024",
-          "Artificial Intelligence Intern - Deep Cognition Inc. - Feb 2024 - April 2024",
-          "Machine Learning Intern - CardeaHealth - November 2024 - Janurary 2023"
+          "graduate research assistant - purdue University - august 2024 - december 2024",
+          "software engineer intern - striim I. - june 2024 - august 2024",
+          "artificial antelligence intern - deep cognition inc. - feb 2024 - april 2024",
+          "machine learning intern - cardeahealth - november 2024 - janurary 2023"
         ],
         "url": "",
         "media": "/work.png"
       },
       {
-        "title": "Education",
+        "title": "education",
         "education": [
           {
-            "institution": "Purdue University",
+            "institution": "purdue university",
             "url": "https://www.cs.purdue.edu/people/graduate-students/mahades.html",
-            "degree": "Masters of Science in Computer Science - August 2023 - May 2025"
+            "degree": "masters of science in computer science - august 2023 - may 2025"
           },
           {
-            "institution": "College of Engineering Guindy, Anna University",
+            "institution": "college of engineering guindy, anna university",
             "url": "https://in.linkedin.com/school/college-of-engineering-guindy/?trk=public_profile_school",
-            "degree": "Bachelors of Engineering in Computer Science and Engineering - July 2019 - June 2023"
+            "degree": "bachelors of engineering in computer science and engineering - july 2019 - june 2023"
           }
         ],
         "url": "",
         "media": "/work.png"
       },
       {
-        "title": "Projects",
+        "title": "projects",
         "academic": [
           {
-            "title": "Consensus-Driven LLM Chess Strategy: Merging and Debating LLMs for Enhanced AI Gameplay",
+            "title": "consensus-driven llm chess strategy: merging and debating llms for enhanced ai gameplay",
             "url": "https://github.com/shreyash2106/LLM_Chess_Team"
           },
           {
-            "title": "Reinforcement Learning for Robust LLM Code Generation with Vulnerability Detection",
+            "title": "reinforcement learning for robust llm code generation with vulnerability detection",
             "url": "https://github.com/gneeraj2001/SecureVul_AISE"
           },
           {
-            "title": "3D Face Reconstruction using a Single RGB Image using Self-Supervised Learning",
+            "title": "3d face reconstruction using a single rgb image using self-supervised learning",
             "url": "https://drive.google.com/file/d/1lFHc87rtBQF88ZQyUkpdDzzhO6-LTGH0/view?usp=drive_link"
           },
           {
-            "title": "Dynamic Music Recommender using Collaborative Filtering, Content-Based Approaches, and LLM-Powered Prompt Techniques",
+            "title": "dynamic music recommender using collaborative filtering, content-based approaches, and llm-powered prompt techniques",
             "url": "https://github.com/shreyash2106/CS573_Final_Project"
           },
           {
-            "title":"High-Definition 4K Live Streaming: A MultiTCP Approach to Boost Reliability and Minimize Latency",
-            "url":"https://github.com/samhitamahadevan/Streem/blob/main/Report_Streem.pdf"
+            "title": "high-definition 4k live streaming: a multitcp approach to boost reliability and minimize latency",
+            "url": "https://github.com/samhitamahadevan/Streem/blob/main/Report_Streem.pdf"
           }
         ],
         "url": "",
         "media": "/work.png"
       },
       {
-        "title": "Skills",
+        "title": "skills",
         "skills": [
           {
-            "category": "Languages",
-            "items": ["Python","Java","C++","C",
-              "HTML/CSS",
-              "JavaScript",
-              "SQL"
+            "category": "languages",
+            "items": [
+              "python",
+              "java",
+              "c++",
+              "c",
+              "html/css",
+              "javascript",
+              "sql"
             ]
           },
           {
-            "category": "Developer Tools",
+            "category": "developer tools",
             "items": [
-              "VS Code",
-              "Eclipse",
-              "Google Cloud Platform",
-              "Jupyter Notebook",
-              "AWS",
-              "HuggingFace"
+              "vs code",
+              "eclipse",
+              "google cloud platform",
+              "jupyter notebook",
+              "aws",
+              "huggingface"
             ]
           },
           {
-            "category": "Technologies/Frameworks",
+            "category": "technologies/frameworks",
             "items": [
-              "Linux",
-              "Docker",
-              "GitHub",
-              "PyTorch",
-              "TensorFlow"
+              "linux",
+              "docker",
+              "github",
+              "pytorch",
+              "tensorflow"
             ]
           }
         ],
         "url": "",
         "media": "/work.png"
       },
-
       {
-        "title": "Awards and Publications",
+        "title": "awards and publications",
         "awards_and_publications": [
           {
-            "title": "All India Manufacturers Organisation Industrial Research and Development Trust (AIMO Award) Endowment",
-            "institution": "Anna University"
+            "title": "all india manufacturers organisation industrial research and development trust (aimo award) endowment",
+            "institution": "anna university"
           },
           {
-            "title": "Centre for Intellectual Property Best Project Award",
-            "institution": "Anna University"
+            "title": "centre for intellectual property best project award",
+            "institution": "anna university"
           },
           {
-            "title": "ARDL-IDS: Adversarial Resilience in Deep Learning-based Intrusion Detection Systems",
-            "publication": "In 2023 International Conference on Wireless Communications Signal Processing and Networking (WiSPNET), 2023, IEEE",
+            "title": "ardl-ids: adversarial resilience in deep learning-based intrusion detection systems",
+            "publication": "in 2023 international conference on wireless communications signal processing and networking (wispnet), 2023, ieee",
             "url": "https://ieeexplore.ieee.org/document/10134456/"
           }
         ],
@@ -144,10 +143,8 @@
         "media": "/work.png"
       }
     ],
-    "linkIcon": "/icons/arrow-icon-black.svg"  
+    "linkIcon": "/icons/arrow-icon-black.svg"
   },
-
- 
   "socials": {
     "links": [
       {
