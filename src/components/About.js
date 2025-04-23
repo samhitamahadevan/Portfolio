@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import Box from './Box';
 import React from 'react';
@@ -39,7 +40,7 @@ export default function About({ data, timeline }) {
           {/* {data?.text} */}
           cs master&apos;s candidate at purdue (2025) with experience as a graduate research assistant in applying foundational models to digital forensics. my technical journey, rooted at anna university, includes roles at {' '}
         <a href="https://www.striim.com" target="_blank" rel="noopener noreferrer" className="underline">
-          striim Inc.
+          striim inc.
         </a>,{' '}
         <a href="https://www.deepcognition.ai" target="_blank" rel="noopener noreferrer" className="underline">
           deep cognition inc.

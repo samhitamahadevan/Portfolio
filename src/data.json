@@ -1,6 +1,6 @@
 {
   "nav": {
-    "logo": "<span class='italic'>SAMHITA</span> <span class='font-semibold'>MAHADEVAN</span>",
+    "logo": "<span class='italic'>samhita</span> <span class='font-semibold'>mahadevan</span>",
     "links": [
       {
         "title": "Resume/CV",
@@ -9,14 +9,14 @@
     ]
   },
   "intro": {
-    "heading": "<span class='font-normal italic'>curious</span> ai enthusiast building intelligent systems that deliver <span class='font-normal italic'>practical</span> solutions",
+    "heading": "<span class='font-normal italic'>passionate</span> ai enthusiast designing intelligent systems that deliver <span class='font-normal italic'>practical</span> solutions",
     "icon": "/icons/intro-icon.svg"
   },
   "portrait": {
     "image": "/pic.jpg"
   },
   "about": {
-    "text": "cs master's candidate at purdue (2025) with experience as a graduate research assistant in applying foundational models to digital forensics. my technical journey, rooted at anna university, includes roles at striim inc., deep cognition inc., and cardea health, providing diverse experience across technology domains. i'm passionate about transforming concepts into reality, delivering impactful ai solutions that solve real problems. beyond tech, i find balance through swimming and trivia games. always eager to collaborate on innovative ml/ai projects that push boundaries and satisfy my natural curiosity.RetryClaude can make mistakes. Please double-check responses.",
+    "text": "cs master's candidate at purdue (2025) with experience as a graduate research assistant in applying foundational models to digital forensics. my technical journey, rooted at anna university, includes roles at striim inc., deep cognition inc., and cardea health, providing diverse experience across technology domains. i'm passionate about transforming concepts into reality, delivering impactful ai solutions that solve real problems. beyond tech, i find balance through swimming and trivia games. always eager to collaborate on innovative ml/ai projects that push boundaries and satisfy my natural curiosity.",
     "icon": "/icons/about-icon.svg"
   },
   "contact": {
