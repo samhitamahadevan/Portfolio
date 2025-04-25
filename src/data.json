@@ -59,6 +59,10 @@
         "title": "projects",
         "academic": [
           {
+            "title": "preppal: dynamic ai interview simulation with adaptive voice interaction for anxiety-reducing technical job prep",
+            "url": "https://saa-final-git-interviewgen-samhitas-projects.vercel.app/"
+          },
+          {
             "title": "consensus-driven llm chess strategy: merging and debating llms for enhanced ai gameplay",
             "url": "https://github.com/shreyash2106/LLM_Chess_Team"
           },

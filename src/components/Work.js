@@ -94,10 +94,9 @@ const ProjectItem = ({
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block aspect-[3/2] w-full origin-top overflow-hidden rounded-[16px] `}
+        className={`${index === 0 ? 'mt-4 h-auto' : 'h-0'} thumbnail pointer-events-auto relative block w-full origin-top overflow-hidden`}
       >
-        {/* Replacing <a> with a <div> */}
-        <div className="p-4 rounded-[16px]">
+        <div className="p-4">
           {/* Experience */}
           {Array.isArray(project.experience) && (
             <div className="mb-4">
@@ -139,7 +138,7 @@ const ProjectItem = ({
           {/* Projects */}
           {Array.isArray(project.academic) && (
             <div className="mb-4">
-              <ul className="text-gray-700 text-left about-text space-y-2">
+              <ul className="text-gray-700 text-left about-text space-y-4">
                 {project.academic.map((item, idx) => (
                   <li key={idx} className="text-left">
                     {item.url ? (
@@ -147,12 +146,12 @@ const ProjectItem = ({
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:underline"
+                        className="hover:underline block text-base leading-relaxed break-words"
                       >
                         {item.title}
                       </a>
                     ) : (
-                      <span>{item.title}</span>
+                      <span className="block text-base leading-relaxed break-words">{item.title}</span>
                     )}
                   </li>
                 ))}
